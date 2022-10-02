@@ -1,16 +1,9 @@
 import { React } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './componentes/Navbar'
+import { Navbar } from './componentes/Navbar';
 import { Footer } from './componentes/Footer'
 
-import Carrito from './pages/Carrito'
-import Home from './pages/Home'
-import QuienesSomos from './pages/QuienesSomos'
-import Pago from './pages/Pago'
-import Producto from './pages/Producto'
-import Productos from './pages/Productos' 
-import Error404 from './pages/Error404'
-
+import {Home, QuienesSomos, Carrito, Productos, Pago, Error404} from './pages'
 
 
 function App() {
