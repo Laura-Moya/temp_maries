@@ -7,18 +7,19 @@ import { Link } from 'react-router-dom';
 //Importaciones propias
 import logo from '../images/logo.png';
 import {links} from '../utils/constantes'
+import CarritoYLogin from './CarritoYLogin.js'
 
 
 
 export const Navbar = () => {
   return (
     <Contenedor_Navbar>
-      <div className='nav-centrada'>
-        <div className='nav-botones'>
+      <div className='navbar-centrada'>
+        <div className='navbar-botones'>
           <Link to='/'>
             <img src={logo}></img>
           </Link>
-          <button type='button' className='btn-navbar'>
+          <button type='button' className='btn-Navbar'>
             <FaBars />
           </button> 
         </div>
@@ -31,53 +32,53 @@ export const Navbar = () => {
                   </li>) 
           })}
         </ul>
+        <CarritoYLogin />
       </div>
     </Contenedor_Navbar>
   )
 }
 
-const Contenedor_Navbar = styled.nav `
+const Contenedor_Navbar = styled.nav`
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin: 1.5rem;
 
-  .nav-centrada {
+  .navbar-centrada {
     width: 90vw;
     margin: 0 auto;
-    max-width: var(--max-width);
+    //max-width: var(--max-width);
   }
-
-  .nav-botones {
+  .navbar-botones {
     display: flex;
     align-items: center;
     justify-content: space-between;
     img {
       width: 10rem;
-      margin-left: -0.5rem;
+      //margin-left: -15px;
     }
   }
-
-  .btn-navbar {
+  .btn-Navbar {
     background: transparent !important;
-    border: transparent !important;
-    color: #b19277 !important;
+    border: transparent;
+    color: #b19277;
     cursor: pointer;
     svg {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
-
   .nav-links {
     display: none;
   }
-
-  @media (min-width: 992px) {
-    .nav-botones {
+  /*.cart-btn-wrapper {
+    display: none;
+  }*/
+  @media (min-width: 700px) {
+    .btn-Navbar {
       display: none;
     }
-    .nav-centrado {
+    .navbar-centrada {
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
@@ -89,14 +90,17 @@ const Contenedor_Navbar = styled.nav `
         margin: 0 0.5rem;
       }
       a {
-        color: var(--clr-grey-3);
+        color: black;   
         font-size: 1rem;
-        text-transform: capitalize;
-        letter-spacing: var(--spacing);
         padding: 0.5rem;
-        &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
-        }
+      }
+      a:hover {
+          color: #b19277;
+          outline: none;
       }
     }
+    /*.cart-btn-wrapper {
+      display: grid;
+    }*/
+  }
 `
