@@ -3,6 +3,7 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  color: black !important;
 }
 ul {
   list-style-type: none;
@@ -16,6 +17,8 @@ hr {
   border-top: 1px solid #b19277;
 }
 
-
-
-
+button {
+  background: transparent !important;
+    border: transparent;
+    cursor: pointer;
+}

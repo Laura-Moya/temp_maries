@@ -60,10 +60,7 @@ const Contenedor_Navbar = styled.nav`
     }
   }
   .btn-Navbar {
-    background: transparent !important;
-    border: transparent;
     color: #b19277;
-    cursor: pointer;
     svg {
       font-size: 2rem;
     }
@@ -71,12 +68,16 @@ const Contenedor_Navbar = styled.nav`
   .nav-links {
     display: none;
   }
-  /*.cart-btn-wrapper {
+  .contenedor-btn-carrito {
     display: none;
-  }*/
-  @media (min-width: 700px) {
+  }
+
+  @media (min-width: 850px) {
     .btn-Navbar {
       display: none;
+    }
+    .contenedor-btn-carrito {
+      display: grid;
     }
     .navbar-centrada {
       display: grid;
@@ -99,8 +100,6 @@ const Contenedor_Navbar = styled.nav`
           outline: none;
       }
     }
-    /*.cart-btn-wrapper {
-      display: grid;
-    }*/
+    
   }
 `
