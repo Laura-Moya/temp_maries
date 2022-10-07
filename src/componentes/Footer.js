@@ -18,6 +18,7 @@ const Contenedor_Footer = styled.footer`
   align-items: center;
   background: #b19277;
   text-align: center;
+  margin-top: 1rem;
   p {
     color: white;
   }

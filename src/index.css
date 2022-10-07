@@ -19,6 +19,6 @@ hr {
 
 button {
   background: transparent !important;
-    border: transparent;
-    cursor: pointer;
+  border: transparent;
+  cursor: pointer ;
 }
