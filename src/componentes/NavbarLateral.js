@@ -8,9 +8,12 @@ import styled from 'styled-components'
 //Importaciones propias
 import logo from '../images/logo.png'
 import CarritoYLogin from './CarritoYLogin'
+import { useProductosContexto } from '../contextos/productos_contexto'
 
 const NavbarLateral = () => {
-  //Flag representa si la navbar lateral está abierta o no
+  const datos = useProductosContexto();
+  console.log(datos)
+  //Flag que representa si la navbar lateral está abierta o no
   const flag = true;
   return  <Contenedor_NavbarLateral>
             <aside className={`${flag ? 'navbarLateral mostrarNavbarLateral' : 

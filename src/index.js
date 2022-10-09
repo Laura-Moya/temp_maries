@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 //Importaciones propias
-//import { ProductosProvider } from './contextos/producto_contexto'
+import { ProductosProvider } from './contextos/productos_contexto'
 //import { FiltrosProvider } from './contextos/filtro_contexto'
 //import { CarritoProvider } from './contextos/carrito_contexto'
 //import { UsuarioProvider } from './contextos/usuario_contexto'
@@ -14,5 +14,8 @@ import App from './App';
 
 const root = ReactDOMClient.createRoot(document.getElementById('root'));
 root.render(
-    <App></App>
+    <ProductosProvider>
+        <App></App>
+    </ProductosProvider>
+    
 );
