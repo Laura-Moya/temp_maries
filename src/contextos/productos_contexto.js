@@ -1,5 +1,7 @@
 
 import React, { useContext, useEffect, useReducer } from 'react'
+
+//El hook
 import reducer from '../reducers/productos_reducer'
 
 import {
@@ -22,10 +24,6 @@ export const ProductosProvider = ({ children }) => {
     const cerrarNavbarLateral = () => {
         dispatch({type: NAVBARLATERAL_CERRADA})
     }
-
-    useEffect (() => {
-        abrirNavbarLateral()
-    }, [])
 
 
     return (

@@ -11,25 +11,24 @@ import CarritoYLogin from './CarritoYLogin'
 import { useProductosContexto } from '../contextos/productos_contexto'
 
 const NavbarLateral = () => {
-  const datos = useProductosContexto();
-  console.log(datos)
-  //Flag que representa si la navbar lateral está abierta o no
-  const flag = true;
+  const {navbarLateralAbierta, cerrarNavbarLateral} = useProductosContexto();
   return  <Contenedor_NavbarLateral>
-            <aside className={`${flag ? 'navbarLateral mostrarNavbarLateral' : 
+            <aside className={`${navbarLateralAbierta ? 'navbarLateral mostrarNavbarLateral' : 
             'navbarLateral'}`}>
                 <div className='navbarLateral-botones'>
                   <img src={logo} className='logo'/>
-                  <button className='btn-cerrar' type='button'><FaTimes/></button>
+                  <button className='btn-cerrar' type='button' onClick={cerrarNavbarLateral}
+                          title='Cerrar menú'><FaTimes/></button>
                 </div>
+
                 <ul className='navLateral-links'>
                   {links.map(({id, nombre, url}) => {
                     return <li key={id}>
-                            <Link to={url}>{nombre}</Link>
+                            <Link to={url} onClick={cerrarNavbarLateral}>{nombre}</Link>
                            </li>
                   })}
                   <li>
-                    <Link to='/carrito'>Carrito</Link>
+                    <Link to='/carrito' onClick={cerrarNavbarLateral}>Carrito</Link>
                   </li>
                 </ul>
                 <CarritoYLogin />
@@ -75,6 +74,7 @@ const Contenedor_NavbarLateral = styled.div`
     width: 100%;
     height: 100%;
     background: white;
+    transform: translate(-100%);
     z-index: -1;
   }
   .mostrarNavbarLateral {

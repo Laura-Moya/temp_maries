@@ -3,13 +3,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { useProductosContexto } from '../contextos/productos_contexto';
+
 //Importaciones propias
 import { FaShoppingCart, FaUser, FaUserInjured } from 'react-icons/fa';
 
 const CarritoYLogin = () => {
+  const {navbarLateralAbierta, cerrarNavbarLateral} = useProductosContexto();
   return (
     <Contenedor_CarritoYLogin className='contenedor-btn-carrito'>
-      <Link to="/cart" className='btn-carrito'>
+      <Link to="/cart" className='btn-carrito' onClick={cerrarNavbarLateral}>
         <span className='contenedor-carrito'>
           <FaShoppingCart />
           <span className='items-carrito'>2</span>

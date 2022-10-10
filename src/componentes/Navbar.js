@@ -8,10 +8,12 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import {links} from '../utils/constantes'
 import CarritoYLogin from './CarritoYLogin.js'
+import { useProductosContexto } from '../contextos/productos_contexto';
 
 
 
 export const Navbar = () => {
+  const {abrirNavbarLateral} = useProductosContexto()
   return (
     <Contenedor_Navbar>
       <div className='navbar-centrada'>
@@ -19,7 +21,7 @@ export const Navbar = () => {
           <Link to='/'>
             <img src={logo}></img>
           </Link>
-          <button type='button' className='btn-Navbar'>
+          <button type='button' className='btn-Navbar' onClick={abrirNavbarLateral}>
             <FaBars />
           </button> 
         </div>
