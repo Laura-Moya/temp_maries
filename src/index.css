@@ -22,3 +22,8 @@ button {
   border: transparent;
   cursor: pointer ;
 }
+
+.pagina-completa {
+  min-height: calc(100vh - 10rem);
+  padding: 5rem 0;
+}
