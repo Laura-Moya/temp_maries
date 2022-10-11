@@ -61,7 +61,7 @@ min-height: 60vh;
     }
     .salon-img {
       width: 100%;
-      height: 550px;
+      height: 34rem;
       position: relative;
       border-radius: var(--radius);
       display: block;
