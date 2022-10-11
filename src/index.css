@@ -12,6 +12,11 @@ ul {
 a {
   text-decoration: none;
 }
+
+a:hover {
+  color: #9c795a;
+}
+
 hr {
   border: none;
   border-top: 1px solid #b19277;
@@ -24,6 +29,26 @@ button {
 }
 
 .pagina-completa {
+  /*100vh es el tamaño de la página 
+  completa pero hay que restarle los 
+  10 rem de la navbar, si no, la aplasta*/
   min-height: calc(100vh - 10rem);
   padding: 5rem 0;
+}
+
+.pagina-espacio-central {
+  /*100vh es el tamaño de la página 
+  completa pero hay que restarle los 
+  10 rem de la navbar y los 20vh de espacio restante*/
+  min-height: calc(100vh - (20vh + 10rem));
+}
+
+/*Los estilos de las secciones en general*/
+.section {
+  padding: 5rem 0;
+}
+.section-centrada {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
 }
