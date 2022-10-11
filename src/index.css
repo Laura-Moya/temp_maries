@@ -28,6 +28,20 @@ button {
   cursor: pointer ;
 }
 
+.btn {
+  text-transform: uppercase;
+  background: #b19277;
+  padding: 0.375rem 0.75rem;
+  display: inline-block;
+  font-weight: 400;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  border-color: transparent;
+}
+
 .pagina-completa {
   /*100vh es el tamaño de la página 
   completa pero hay que restarle los 
