@@ -95,7 +95,7 @@ const Contenedor_NuestrosServicios = styled.section`
       font-size: 2rem;
     }
   }
-  @media (min-width: 992px) {
+  @media (min-width: 850px) {
     .header {
       display: grid;
       grid-template-columns: 1fr 1fr;
