@@ -11,8 +11,8 @@ const Contacto = () => {
                     Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
                     cuando un impresor N. del T. 
                 </p>
-                <form action='' className='form-contacto'>
-                    <input type="email" className='form-input' placeholder='Email...'></input>
+                <form action="https://formspree.io/f/moqblgko" method="POST" className='form-contacto'>
+                    <input type="email" className='form-input' placeholder='Email...' name="email"></input>
                     <button type='submit' className='submit-btn'>SUSCRIBETE</button>
                 </form>
             </div>
