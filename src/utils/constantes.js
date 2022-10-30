@@ -22,3 +22,11 @@ export const links = [
         url: '/productos'
     }
 ]
+
+/*Nos creamos dos constantes (que vamos a exportar)
+  que serán los links a la api que hemos creado de productos */
+
+export const url_productos = 'https://serverless-api-maries-apartments.netlify.app/api/productos'
+//export const url_productos = 'https://serverless-api-maries-apartments.netlify.app'
+
+export const url_producto_individual = 'https://serverless-api-maries-apartments.netlify.app/api/productos?id='
