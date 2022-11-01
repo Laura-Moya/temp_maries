@@ -39,6 +39,7 @@ export const ProductosProvider = ({ children }) => {
         try {
             const response = await axios.get(url_productos)
             const productos = response.data
+            console.log(response)
             dispatch({type: GET_PRODUCTOS_CORRECTO, payload: productos})
         }
         catch(error) {

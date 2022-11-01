@@ -18,7 +18,7 @@ const productos_reducer = (state, action) => {
     }
     if (action.type === GET_PRODUCTOS_CORRECTO) {
         const productos_destacados = action.payload.filter(
-            (producto) => producto.destacado === true
+            (producto) => producto.destacado === 'SI'
         )
         return {...state, productos_cargando: false, productos: action.payload, productos_destacados}
     }
