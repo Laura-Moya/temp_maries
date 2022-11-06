@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { RiCursorFill } from 'react-icons/ri'
 
 const Producto = ({url, nombre, precio, id, destacado}) => {
-  console.log(url)
   return (
     <Producto_Contenedor>
       
