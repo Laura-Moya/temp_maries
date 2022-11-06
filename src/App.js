@@ -4,7 +4,7 @@ import { Navbar } from './componentes/Navbar';
 import {Footer} from './componentes/Footer'
 import NavbarLateral  from './componentes/NavbarLateral'
 
-import {Home, QuienesSomos, Carrito, Productos, Pago, Error404} from './pages'
+import {Home, QuienesSomos, Carrito, Productos, Pago, Error404, Producto} from './pages'
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route exact path='/quienesSomos' element={<QuienesSomos />} />
         <Route exact path='/carrito' element={<Carrito />} />
         <Route exact path='/productos' element={<Productos />} />
-        {/**<Route exact path='/productos/:id' children={<Producto />} />**/}
+        <Route exact path='/productos/:id' element={<Producto />} />
         <Route exact path='/pago' element={<Pago />} />
         <Route path='*' element={<Error404 />} />
       </Routes>
