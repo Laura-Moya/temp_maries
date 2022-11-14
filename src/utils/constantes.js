@@ -31,3 +31,5 @@ export const url_productos = 'https://serverless-api-maries-apartments.netlify.a
 
 export const url_producto_individual = 'https://serverless-api-maries-apartments.netlify.app/api/productos?id='
 //export const url_producto_individual = 'https://course-api.com/react-store-single-product?id='
+
+ 
