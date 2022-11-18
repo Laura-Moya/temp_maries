@@ -6,6 +6,7 @@ import { url_producto_individual } from '../utils/constantes'
 import Cargando from '../componentes/Cargando'
 import Error404 from '../componentes/Error404'
 import AñadirAlCarrito from '../componentes/AñadirAlCarrito'
+import Review from '../componentes/Review'
 import {EsqueletoSplit} from '../componentes/EsqueletoSplit'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -50,7 +51,7 @@ const Producto = () => {
         Product images
         <section className='content'>
           <h2>{nombre}</h2>
-          Stars
+          <Review estrellas={estrellas} />
           <h5>{precio} €</h5>
           <p className='desc'>{descripcion}</p>
           <p className='info'>
