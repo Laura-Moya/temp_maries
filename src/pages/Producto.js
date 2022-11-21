@@ -6,6 +6,7 @@ import { url_producto_individual } from '../utils/constantes'
 import Cargando from '../componentes/Cargando'
 import Error404 from '../componentes/Error404'
 import AñadirAlCarrito from '../componentes/AñadirAlCarrito'
+import ProductoImagen from '../componentes/ProductoImagen'
 import Review from '../componentes/Review'
 import {EsqueletoSplit} from '../componentes/EsqueletoSplit'
 import styled from 'styled-components'
@@ -38,17 +39,15 @@ const Producto = () => {
   if (error) {
     return <Error404 />
   }
-  //console.log(producto)
-  const {nombre, precio, descripcion, stock, estrellas, id:sku, fabricante, } = producto
+  const {nombre, precio, descripcion, stock, estrellas, id:sku, fabricante, imagen} = producto
   
   return (
-  /** <div>Prod</div>**/
    <Contenedor_Producto>
     <EsqueletoSplit title={nombre} producto />
     <div className='section section-centrada'>
       <Link to="/products" className='btn'>Atrás</Link>
       <div className='product-center'>
-        Product images
+        <ProductoImagen imagenes={imagen}/>
         <section className='content'>
           <h2>{nombre}</h2>
           <Review estrellas={estrellas} />
