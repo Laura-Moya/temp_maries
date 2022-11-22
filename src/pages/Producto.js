@@ -66,8 +66,9 @@ const Producto = () => {
             {fabricante}
           </p>
           <hr />
+          {stock > 0 && <AñadirAlCarrito producto={producto} />}
         </section>
-        {stock > 0 && <AñadirAlCarrito />}
+        
 
       </div>
     </div>

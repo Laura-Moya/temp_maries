@@ -30,7 +30,7 @@ const Contendor_Reviews = styled.div `
   display: flex;
   align-items: center;
   span {
-    color: #d4cc31;
+    color: #e5c440ff;
     font-size: 1rem;
     margin-right: 0.25rem;
   }
