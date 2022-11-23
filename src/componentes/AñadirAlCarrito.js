@@ -1,15 +1,40 @@
+//Importaciones básicas
 import React from 'react'
 import styled from 'styled-components';
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+//Importaciones propias
 import {FaCheck} from 'react-icons/fa';
+import MasMenosBotones from './MasMenosBotones';
 
 const AñadirAlCarrito = ({producto}) => {
-  // add to cart
   //Lo del estilo inline he tenido que hacerlo así porque 
   //react doesn't support el !important en el inline style
+
+  //Colores stuff
   const { id, stock, colores } = producto
   const [selectedColor, setSelectedColor] = useState(colores[0])
+
+  //Más menos stuff
+  //Por defecto le ponemos que tenga 1 elemento mínimo, si no peta
+  const [cantidadActual, setCantidadActual] = useState(1);
+
+  const mas = () => {
+    setCantidadActual((valorAnterior) => {
+      let aux = valorAnterior + 1;
+      if (aux > stock) {aux = stock}
+      return aux;
+    })
+  }
+
+  const menos = () => {
+    setCantidadActual((valorAnterior) => {
+      let aux = valorAnterior - 1;
+      if (aux < 1) {aux = 1}
+      return aux;
+    })
+  }
+
   return (
     <Contenedor_AñadirAlCarrito>
       <div className='colores-disponibles'>
@@ -34,6 +59,10 @@ const AñadirAlCarrito = ({producto}) => {
             )
           })}
         </div>
+      </div>
+      <div>
+        <MasMenosBotones cantidad={cantidadActual} sumar={mas} quitar={menos}/>
+        <Link to="/carrito" className='btn'>Añadir al carrito</Link>
       </div>
     </Contenedor_AñadirAlCarrito>
   )
@@ -77,7 +106,7 @@ const Contenedor_AñadirAlCarrito = styled.section`
     margin-top: 2rem;
   }
   .btn {
-    //margin-top: 1rem;
+    margin-top: 1rem;
     width: 8.75rem;
   }
 `
