@@ -54,7 +54,7 @@ const Contenedor_ProductoImagen = styled.section`
       }
     }
   }
-  @media (min-width: 992px) {
+  @media (min-width: 850px) {
     .primera {
       height: 500px;
     }

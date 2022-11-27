@@ -26,7 +26,7 @@ export const FiltroProvider = ({children}) => {
     }, [productos])
 
     return (
-        <FiltroContexto.Provider value='filter context'>
+        <FiltroContexto.Provider value={{...state}}>
             {children}
         </FiltroContexto.Provider>
     )
