@@ -10,7 +10,8 @@ import {
 
 const initialState = {
     productos_filtrados: [], 
-    productos_totales: []
+    productos_totales: [],
+    v_cuadricula: true,
 }
 
 const FiltroContexto = React.createContext()
@@ -20,7 +21,7 @@ export const FiltroProvider = ({children}) => {
     //Para meter esos productos en mi initial state, no los puedo
     //asignar sin más, hay que usar el useEffect
     const [state, dispatch] = useReducer(reducer, initialState)
-
+    
     useEffect(() => {
         dispatch({type: CARGAR_PRODUCTOS, payload: productos})
     }, [productos])

@@ -45,7 +45,7 @@ const Producto = () => {
    <Contenedor_Producto>
     <EsqueletoSplit title={nombre} producto />
     <div className='section section-centrada'>
-      <Link to="/products" className='btn'>Atrás</Link>
+      <Link to="/productos" className='btn'>Atrás</Link>
       <div className='product-center'>
         <ProductoImagen imagenes={imagen}/>
         <section className='content'>
