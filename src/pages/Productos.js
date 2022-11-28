@@ -3,7 +3,7 @@ import styled from 'styled-components'
 //Importaciones propias
 import { EsqueletoSplit } from '../componentes/EsqueletoSplit'
 import  Filtros  from '../componentes/Filtros'
-import PreferenciasOrden from '../componentes/PreferenciasOrden'
+import VistaBotones from '../componentes/VistaBotones'
 import ListaProductos from '../componentes/ListaProductos'
 
 const Productos = () => {
@@ -14,7 +14,7 @@ const Productos = () => {
         <div className='section-centrada productos'>
           <Filtros/>
           <div>
-            <PreferenciasOrden />
+            <VistaBotones />
             <ListaProductos />
           </div>
         </div>
