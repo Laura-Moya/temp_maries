@@ -4,6 +4,8 @@ import reducer from '../reducers/filtro_reducer'
 
 import {
     CARGAR_PRODUCTOS,
+    SET_VISTA_CUADRICULA,
+    SET_VISTA_LISTA,
 } from '../actions'
 
 
@@ -11,7 +13,7 @@ import {
 const initialState = {
     productos_filtrados: [], 
     productos_totales: [],
-    v_cuadricula: true,
+    v_cuadricula: true
 }
 
 const FiltroContexto = React.createContext()
@@ -26,8 +28,16 @@ export const FiltroProvider = ({children}) => {
         dispatch({type: CARGAR_PRODUCTOS, payload: productos})
     }, [productos])
 
+    const setVistaCuadricula = () => {
+        dispatch({type: SET_VISTA_CUADRICULA})
+    }
+
+    const setVistaLista = () => {
+        dispatch({type: SET_VISTA_LISTA})
+    }
+
     return (
-        <FiltroContexto.Provider value={{...state}}>
+        <FiltroContexto.Provider value={{...state, setVistaCuadricula, setVistaLista}}>
             {children}
         </FiltroContexto.Provider>
     )
