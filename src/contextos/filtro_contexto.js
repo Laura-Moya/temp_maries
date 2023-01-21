@@ -6,14 +6,16 @@ import {
     CARGAR_PRODUCTOS,
     SET_VISTA_CUADRICULA,
     SET_VISTA_LISTA,
+    ACTUALIZAR_ORDER_BY,
+    ORDENAR,
 } from '../actions'
-
 
 
 const initialState = {
     productos_filtrados: [], 
     productos_totales: [],
-    v_cuadricula: true
+    v_cuadricula: true, 
+    order_by: 'precio-mas-bajo'
 }
 
 const FiltroContexto = React.createContext()
@@ -28,6 +30,10 @@ export const FiltroProvider = ({children}) => {
         dispatch({type: CARGAR_PRODUCTOS, payload: productos})
     }, [productos])
 
+    useEffect(() => {
+        dispatch({type: ORDENAR})
+    }, [productos, state.order_by])
+
     const setVistaCuadricula = () => {
         dispatch({type: SET_VISTA_CUADRICULA})
     }
@@ -36,8 +42,12 @@ export const FiltroProvider = ({children}) => {
         dispatch({type: SET_VISTA_LISTA})
     }
 
+    const actualizarOrderBy = (e) => {
+        const valor = e.target.value
+        dispatch({type: ACTUALIZAR_ORDER_BY, payload: valor})
+    }
     return (
-        <FiltroContexto.Provider value={{...state, setVistaCuadricula, setVistaLista}}>
+        <FiltroContexto.Provider value={{...state, setVistaCuadricula, setVistaLista, actualizarOrderBy}}>
             {children}
         </FiltroContexto.Provider>
     )

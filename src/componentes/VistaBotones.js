@@ -9,7 +9,9 @@ const VistaBotones = () => {
     const {productos_filtrados: productos, 
             v_cuadricula, 
             setVistaCuadricula, 
-            setVistaLista} = useFiltroContexto();
+            setVistaLista, 
+            order_by, 
+            actualizarOrderBy} = useFiltroContexto();
     return (
     <Contenedor_VistaBotones>
         <div className='contenedor-botones'>
@@ -24,7 +26,8 @@ const VistaBotones = () => {
         <div><hr /></div>
         <form>
             <label htmlFor='ordenar' id='ordenar'>Ordenar por: </label>
-            <select name='ordenar' id='ordenar' className='orden-seleccionado'>
+            <select name='ordenar' id='ordenar' className='orden-seleccionado'
+            value={order_by} onChange={actualizarOrderBy}>
                 <option value='precio-mas-bajo'>Precio (más bajo)</option>
                 <option value='precio-mas-alto'>Precio (más alto)</option>
                 <option value='nombre-a'>Nombre (A-Z)</option>
