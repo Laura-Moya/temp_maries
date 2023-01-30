@@ -3,14 +3,31 @@ import {
     SET_VISTA_CUADRICULA,
     SET_VISTA_LISTA,
     ACTUALIZAR_ORDER_BY,
-    ORDENAR
+    ORDENAR, 
+    ACTUALIZAR_FILTROS,
+    FILTRAR_PRODUCTOS,
 } from '../actions'
 
 const filtro_reducer = (state, action) => {
     if (action.type === CARGAR_PRODUCTOS) {
-        return{...state, 
+        /*Podríamos asignar un valor random a precio_min y precio_max, 
+        tipo 2000000000 para el máximo y -20000000 para el mínimo, 
+        pero para hacerlo lo más coherente posible, vamos a establer el 
+        precio_max igual al mayor precio de nuestra bd y lo mismo para
+        precio_min*/
+
+        //Hacemos un map de todos nuestros productos y cogemos el mayor precio
+        let auxMax = action.payload.map((item) => item.precio)
+        auxMax = Math.max(...auxMax)
+        return {...state, 
             productos_totales: [...action.payload], 
-            productos_filtrados: [...action.payload], }
+            productos_filtrados: [...action.payload], 
+            filtros_disponibles: {
+                ...state.filtros_disponibles,
+                precio_max: auxMax,
+                precio: auxMax
+            }
+        }
     }
 
     if (action.type === SET_VISTA_CUADRICULA) {
@@ -47,6 +64,24 @@ const filtro_reducer = (state, action) => {
                 break;
         }
         return {...state, productos_filtrados: aux}
+    }
+
+    if (action.type === ACTUALIZAR_FILTROS) {
+        const {nombre, valor} = action.payload;
+        /*Explcación de esta línea: filtros_disponibles:{...state, filtros_disponibles, [nombre]: valor}
+        Nosotros queremos que sea cual sea el filtro que estemos tocando, se actualice con nuestro valor, 
+        así que en vez de hacer un switch o algo así, lo actualizamos de manera dinámica, 
+        el valor nombre va a ser una de las propiedades de filtros_disponibles, la que sea se actualizará
+        con el valor "valor" */
+        return {
+            ...state, 
+            filtros_disponibles:{...state.filtros_disponibles, [nombre]: valor}
+        }
+    }
+
+
+    if (action.type === FILTRAR_PRODUCTOS) {
+        return {...state}
     }
 
     throw new Error(`No matching "${action.type}" - action type`)
