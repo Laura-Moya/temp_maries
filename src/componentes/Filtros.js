@@ -37,13 +37,14 @@ const Filtros = () => {
           <h5>Estancia</h5>
           <div>
             {
+              /*className={`${categoria === c.toLowerCase() ? 'active' : null}`} */
               categorias.map((c, item) => {
                 return (<button 
                   key={item} 
                   onClick={actualizarFiltros} 
                   type='button' 
                   name='categoria' 
-                  className={`${categoria === c.toLowerCase() ? 'active' : null}`}>
+                  >
                     {c}
                   </button>)
               })
@@ -51,6 +52,19 @@ const Filtros = () => {
           </div>
         </div>
         {/*Fin Categorías */}
+        {/*Fabricantes */}
+        <div className='form-control'>
+            <h5>Fabricante</h5>
+            <select name='fabricante' 
+            value={fabricante}
+            onChange={actualizarFiltros}
+            className='fabricante'>
+              {fabricantes.map((item, i) => {
+                  return <option key={i} value={item}>{item}</option>
+              })}
+            </select>
+        </div>
+        {/*Fin fabricantes */}
       </form>
     </div>
   </Contenedor_Filtros>
@@ -94,9 +108,9 @@ const Contenedor_Filtros = styled.section`
   .active {
     border-color: var(--clr-grey-5);
   }
-  .company {
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
+  .fabricante {
+    background: #e8e8e8;
+    border-radius: 0.25rem;
     border-color: transparent;
     padding: 0.25rem;
   }
