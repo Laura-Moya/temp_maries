@@ -9,7 +9,7 @@ import ListaProductos from '../componentes/ListaProductos'
 const Productos = () => {
   return (
     <main>
-      <EsqueletoSplit title="productos"></EsqueletoSplit>
+      <EsqueletoSplit title="Productos"></EsqueletoSplit>
       <Contenedor_Productos className='pagina-espacio-central'>
         <div className='section-centrada productos'>
           <Filtros/>

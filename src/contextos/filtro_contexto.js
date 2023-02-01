@@ -9,6 +9,7 @@ import {
     ORDENAR,
     ACTUALIZAR_FILTROS,
     FILTRAR_PRODUCTOS,
+    RESET_FILTROS,
 } from '../actions'
 
 
@@ -73,11 +74,18 @@ export const FiltroProvider = ({children}) => {
         if(nombre === 'color') {
             valor = e.target.dataset.color
         }
+        if (nombre === 'precio') {
+            //Esto es por lo de que te lo pasa a string
+            valor = Number(valor)
+        }
+        if (nombre === 'envioGratis') {
+            valor = e.target.checked
+        }
         dispatch({type: ACTUALIZAR_FILTROS, payload: {nombre, valor}})
     } 
 
     const resetFiltros = () => {
-
+        dispatch({type: RESET_FILTROS})
     } 
 
     return (

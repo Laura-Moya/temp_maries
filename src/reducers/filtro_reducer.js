@@ -6,6 +6,7 @@ import {
     ORDENAR, 
     ACTUALIZAR_FILTROS,
     FILTRAR_PRODUCTOS,
+    RESET_FILTROS,
 } from '../actions'
 
 const filtro_reducer = (state, action) => {
@@ -82,6 +83,18 @@ const filtro_reducer = (state, action) => {
 
     if (action.type === FILTRAR_PRODUCTOS) {
         return {...state}
+    }
+
+    if(action.type === RESET_FILTROS) {
+        return {...state, 
+            filtros_disponibles: {
+            texto: '', 
+            fabricante: 'Todos',
+            color: 'Todos', 
+            categoria: 'Todos',
+            precio: 0,
+            envioGratis: false,
+        },}
     }
 
     throw new Error(`No matching "${action.type}" - action type`)

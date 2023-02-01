@@ -40,7 +40,7 @@ const Filtros = () => {
               categorias.map((c, item) => {
                 return (<button 
                   key={item} 
-                  className={`${categoria === c?.toLowerCase() ? 'active' : null}`}
+                  className={`${categoria === c?.toLowerCase() ? 'activo' : null}`}
                   onClick={actualizarFiltros} 
                   type='button' 
                   name='categoria' 
@@ -79,7 +79,7 @@ const Filtros = () => {
                           onClick={actualizarFiltros}
                           data-color='todos'
                           className={`${
-                            color === 'todos' ? 'all-btn active' : 'all-btn'
+                            color === 'todos' ? 'todos-btn activo' : 'todos-btn'
                           }`}
                         >
                           Todos
@@ -96,7 +96,7 @@ const Filtros = () => {
                           }
                         }}
                         className={`${
-                          color === c ? 'color-btn active' : 'color-btn'
+                          color === c ? 'color-btn activo' : 'color-btn'
                         }`}
                         data-color={c}
                         onClick={actualizarFiltros}
@@ -110,6 +110,34 @@ const Filtros = () => {
             </div>
         </div>
         {/*Fin colores */}
+        {/*Precio */}
+        <div className='form-control'>
+            <h5>Precio: </h5>
+            <p className='precio'>{precio} €</p>
+            {/*Cuidado esto te convierte la cantidad a 
+            string, lo queremos en integer */}
+            <input 
+            id='precio'
+            type='range' 
+            name='precio' 
+            onChange={actualizarFiltros} 
+            min={precio_min} 
+            max={precio_max}
+            value={precio}></input>
+        </div>
+        {/*FIn precios */}
+        {/*Envío gratis */}
+        <div className='form-control envio'>
+            <label htmlFor='envioGratis'>Envío gratuito: </label>
+            <input type='checkbox' name='envioGratis' id='envioGratis'
+                  onChange={actualizarFiltros} checked={envioGratis}></input>
+        </div>
+        {/*Fin Envío gratis */}
+        {/*Limpiar filtros */}
+        <button type='button' className='borrarFiltros-btn'
+                onClick={resetFiltros}> {' '} Borrar filtros</button>
+        {/*Fin Limpiar filtros */}
+
       </form>
     </div>
   </Contenedor_Filtros>
@@ -150,7 +178,7 @@ const Contenedor_Filtros = styled.section`
     color: grey;
     cursor: pointer;
   }
-  .active {
+  .activo {
     border-color: gray;
   }
   .fabricante {
@@ -181,23 +209,23 @@ const Contenedor_Filtros = styled.section`
       color: white;
     }
   }
-  .all-btn {
+  .todos-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 0.5rem;
     opacity: 0.5;
   }
-  .active {
+  .activo {
     opacity: 1;
   }
-  .all-btn .active {
+  .todos-btn .activo {
     text-decoration: underline;
   }
-  .price {
+  .precio {
     margin-bottom: 0.25rem;
   }
-  .shipping {
+  .envio {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -205,11 +233,17 @@ const Contenedor_Filtros = styled.section`
     column-gap: 0.5rem;
     font-size: 1rem;
   }
-  .clear-btn {
-    background: var(--clr-red-dark);
-    color: var(--clr-white);
+  .borrarFiltros-btn {
+    background: #db0b0b !important;
+    color: white;
     padding: 0.25rem 0.5rem;
-    border-radius: var(--radius);
+    border-radius: 0.25rem;
+  }
+  .borrarFiltros-btn:hover {
+    background: #b00b0b !important;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
   }
   @media (min-width: 768px) {
     .content {
