@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import {FaCheck} from "react-icons/fa";
 
 //Importaciones propias
 import { useFiltroContexto } from '../contextos/filtro_contexto'
@@ -10,7 +10,7 @@ const Filtros = () => {
 
   const {
     filtros_disponibles: {
-      texto, fabricante, colores, categoria, precio_min, precio_max, precio, envioGratis,
+      texto, fabricante, color, categoria, precio_min, precio_max, precio, envioGratis,
     }, 
     actualizarFiltros, 
     resetFiltros, 
@@ -37,10 +37,10 @@ const Filtros = () => {
           <h5>Estancia</h5>
           <div>
             {
-              /*className={`${categoria === c.toLowerCase() ? 'active' : null}`} */
               categorias.map((c, item) => {
                 return (<button 
                   key={item} 
+                  className={`${categoria === c?.toLowerCase() ? 'active' : null}`}
                   onClick={actualizarFiltros} 
                   type='button' 
                   name='categoria' 
@@ -65,6 +65,51 @@ const Filtros = () => {
             </select>
         </div>
         {/*Fin fabricantes */}
+        {/*Colores */}
+        <div className='form-control'>
+            <h5>Colores </h5>
+            <div className='colores'>
+              {
+                  coloresDisponibles.map((c, index) => {
+                    if (c === 'todos') {
+                      return (
+                        <button
+                          key={index}
+                          name='color'
+                          onClick={actualizarFiltros}
+                          data-color='todos'
+                          className={`${
+                            color === 'todos' ? 'all-btn active' : 'all-btn'
+                          }`}
+                        >
+                          Todos
+                        </button>
+                      )
+                    }
+                    return (
+                      <button
+                        key={index}
+                        name='color'
+                        ref={(node) => {
+                          if (node) {
+                            node.style.setProperty("background-color", c, "important");
+                          }
+                        }}
+                        className={`${
+                          color === c ? 'color-btn active' : 'color-btn'
+                        }`}
+                        data-color={c}
+                        onClick={actualizarFiltros}
+                      >
+                        {color === c ? <FaCheck /> : null}
+                      </button>
+                    )
+                  
+                })
+              }
+            </div>
+        </div>
+        {/*Fin colores */}
       </form>
     </div>
   </Contenedor_Filtros>
@@ -101,12 +146,12 @@ const Contenedor_Filtros = styled.section`
     background: transparent;
     border: none;
     border-bottom: 1px solid transparent;
-    letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    letter-spacing: 0.1rem;
+    color: grey;
     cursor: pointer;
   }
   .active {
-    border-color: var(--clr-grey-5);
+    border-color: gray;
   }
   .fabricante {
     background: #e8e8e8;
@@ -114,7 +159,7 @@ const Contenedor_Filtros = styled.section`
     border-color: transparent;
     padding: 0.25rem;
   }
-  .colors {
+  .colores {
     display: flex;
     align-items: center;
   }
@@ -133,7 +178,7 @@ const Contenedor_Filtros = styled.section`
     justify-content: center;
     svg {
       font-size: 0.5rem;
-      color: var(--clr-white);
+      color: white;
     }
   }
   .all-btn {

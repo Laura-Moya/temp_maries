@@ -19,9 +19,9 @@ const initialState = {
     order_by: 'precio-mas-bajo', 
     filtros_disponibles: {
         texto: '', 
-        fabricante: 'todos',
-        colores: 'todos', 
-        categoria: 'todos',
+        fabricante: 'Todos',
+        color: 'Todos', 
+        categoria: 'Todos',
         precio_min: 0, 
         precio_max: 0, 
         precio: 0,
@@ -70,6 +70,9 @@ export const FiltroProvider = ({children}) => {
         if (nombre === 'categoria') { 
             valor = e.target.textContent;
         } 
+        if(nombre === 'color') {
+            valor = e.target.dataset.color
+        }
         dispatch({type: ACTUALIZAR_FILTROS, payload: {nombre, valor}})
     } 
 
