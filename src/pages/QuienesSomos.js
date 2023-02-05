@@ -9,7 +9,7 @@ import quienesSomos from '../images/quienesSomos.jpg'
 const QuienesSomos = () => {
   return (
     <main>
-      <EsqueletoSplit title='quienesSomos'/>
+      <EsqueletoSplit title='Quienes somos'/>
       <Contenedor_QuienesSomos className='pagina-espacio-central section section-centrada'>
         <img src={quienesSomos}></img>
         <article>

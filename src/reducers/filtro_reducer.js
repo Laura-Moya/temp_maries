@@ -80,9 +80,43 @@ const filtro_reducer = (state, action) => {
         }
     }
 
-
     if (action.type === FILTRAR_PRODUCTOS) {
-        return {...state}
+        const {productos_totales} = state
+        const {texto, fabricante, color, categoria, precio_min, precio_max, precio, envioGratis} = state.filtros_disponibles
+        let auxProductos = [...productos_totales]
+
+        //Realizamos el filtrado
+        if (texto) {
+            auxProductos = auxProductos.filter((producto) => {
+                return producto.nombre.toLowerCase().startsWith(texto)
+            })
+        }
+        if (categoria !== 'todos') {
+            auxProductos = auxProductos.filter((producto) =>  {
+                if (producto.categoria.indexOf(categoria) !== -1) {
+                    return producto.categoria
+                } 
+            })
+        }
+        if (fabricante !== 'Todos') {
+            auxProductos = auxProductos.filter((producto) => producto.fabricante === fabricante )
+        }
+
+        if (color !== 'Todos') {
+            auxProductos = auxProductos.filter((producto) => {
+                if (producto.colores.indexOf(color) !== -1) {
+                    return producto.colores
+                } 
+            })
+        }
+
+        auxProductos = auxProductos.filter((producto) => producto.precio <= precio)
+
+        if (envioGratis === true) {
+            auxProductos = auxProductos.filter((producto) => producto.envioGratis === true)
+        }
+
+        return {...state, productos_filtrados:auxProductos}
     }
 
     if(action.type === RESET_FILTROS) {

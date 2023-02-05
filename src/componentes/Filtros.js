@@ -112,7 +112,7 @@ const Filtros = () => {
         {/*Fin colores */}
         {/*Precio */}
         <div className='form-control'>
-            <h5>Precio: </h5>
+            <h5>Precio </h5>
             <p className='precio'>{precio} €</p>
             {/*Cuidado esto te convierte la cantidad a 
             string, lo queremos en integer */}
