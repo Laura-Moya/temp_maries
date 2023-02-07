@@ -68,8 +68,6 @@ const Producto = () => {
           <hr />
           {stock > 0 && <AñadirAlCarrito producto={producto} />}
         </section>
-        
-
       </div>
     </div>
   </Contenedor_Producto>

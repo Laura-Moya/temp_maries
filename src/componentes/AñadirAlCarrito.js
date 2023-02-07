@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom';
 //Importaciones propias
 import {FaCheck} from 'react-icons/fa';
 import MasMenosBotones from './MasMenosBotones';
+import { useCarritoContexto } from '../contextos/carrito_contexto';
 
 const AñadirAlCarrito = ({producto}) => {
   //Lo del estilo inline he tenido que hacerlo así porque 
   //react doesn't support el !important en el inline style
 
+  const {añadirAlCarrito} = useCarritoContexto()
   //Colores stuff
   const { id, stock, colores } = producto
   const [selectedColor, setSelectedColor] = useState(colores[0])
@@ -62,7 +64,7 @@ const AñadirAlCarrito = ({producto}) => {
       </div>
       <div>
         <MasMenosBotones cantidad={cantidadActual} sumar={mas} quitar={menos}/>
-        <Link to="/carrito" className='btn'>Añadir al carrito</Link>
+        <Link to="/carrito" className='btn' onClick={() => añadirAlCarrito(id, selectedColor, cantidadActual, producto)}>Añadir al carrito</Link>
       </div>
     </Contenedor_AñadirAlCarrito>
   )

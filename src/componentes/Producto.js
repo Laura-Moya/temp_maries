@@ -21,7 +21,6 @@ const Producto = ({url, nombre, precio, id, destacado}) => {
     </Producto_Contenedor> 
   )
 }
-//TO DO dar un besito a ivan!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FUEGO
 
 const Producto_Contenedor = styled.article`
 .contenedor {

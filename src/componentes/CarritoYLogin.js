@@ -12,7 +12,7 @@ const CarritoYLogin = () => {
   const {navbarLateralAbierta, cerrarNavbarLateral} = useProductosContexto();
   return (
     <Contenedor_CarritoYLogin className='contenedor-btn-carrito'>
-      <Link to="/cart" className='btn-carrito' onClick={cerrarNavbarLateral}>
+      <Link to="/carrito" className='btn-carrito' onClick={cerrarNavbarLateral}>
         <span className='contenedor-carrito'>
           <FaShoppingCart />
           <span className='items-carrito'>2</span>
