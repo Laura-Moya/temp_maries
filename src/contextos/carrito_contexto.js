@@ -12,7 +12,6 @@ const initialState = {
     items_carrito: 0, 
     precio_total: 0, 
     coste_envio: 2,
-
 }
 
 const CarritoContexto = React.createContext()
@@ -25,8 +24,17 @@ export const CarritoProvider = ({ children }) => {
         dispatch({type: AÑADIR_AL_CARRITO, payload: { id, color, cantidad, producto }})
     }
 
+    //FUNCIONALIDAD DE ELIMINAR DEL CARRITO
+    const eliminarDelCarrito = (id) => {}
+
+    //FUNCIONALIDAD DE SUBIR O BAJAR LA CANTIDAD DE ELEMENTOS DEL CARRITO
+    const modificarCantidad = (id, valor) => {}
+
+    //FUNCIONALIDAD PARA VACIAR EL CARRITO
+    const vaciarCarrito = () => {}
+
     return (
-        <CarritoContexto.Provider value={{...state, añadirAlCarrito}}>{children}</CarritoContexto.Provider>
+        <CarritoContexto.Provider value={{...state, añadirAlCarrito, eliminarDelCarrito, modificarCantidad, vaciarCarrito}}>{children}</CarritoContexto.Provider>
     )
 }
 
