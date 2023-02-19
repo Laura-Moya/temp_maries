@@ -5,8 +5,21 @@ import {
     AÑADIR_AL_CARRITO,
 } from '../actions'
 
+//Gestión del almacenamiento local
+const getLocalStorage = () => {
+    //Le pedimos el contenido del elemento cuya key es igual a 'carrito'
+    let carrito = localStorage.getItem("carrito");
+    if (carrito !== 'undefined') {
+        return JSON.parse(localStorage.getItem('carrito'))
+    }
+    else {
+        return []
+    }
+}
+
+
 const initialState = {
-    carrito: [], 
+    carrito: getLocalStorage(), 
     //No lo llamo productos, porque de un 
     //producto puedes comprar varios ejemplares
     items_carrito: 0, 
@@ -33,6 +46,10 @@ export const CarritoProvider = ({ children }) => {
     //FUNCIONALIDAD PARA VACIAR EL CARRITO
     const vaciarCarrito = () => {}
 
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(state.carrito))
+    }, [state.carrito])
+    
     return (
         <CarritoContexto.Provider value={{...state, añadirAlCarrito, eliminarDelCarrito, modificarCantidad, vaciarCarrito}}>{children}</CarritoContexto.Provider>
     )
