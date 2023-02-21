@@ -6,7 +6,6 @@ import { useState } from 'react';
 //como undefined casca
 const ProductoImagen = ({imagenes = [{url: ''}]}) => {
   const [primera, setPrimera] = useState(imagenes[0]);
-  console.log(primera)
   return (
     <Contenedor_ProductoImagen>
       <img src={primera.url} className='primera'></img>

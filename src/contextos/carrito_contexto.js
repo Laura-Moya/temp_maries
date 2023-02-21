@@ -9,7 +9,7 @@ import {
 const getLocalStorage = () => {
     //Le pedimos el contenido del elemento cuya key es igual a 'carrito'
     let carrito = localStorage.getItem("carrito");
-    if (carrito !== 'undefined') {
+    if (carrito !== 'undefined' && carrito) {
         return JSON.parse(localStorage.getItem('carrito'))
     }
     else {
