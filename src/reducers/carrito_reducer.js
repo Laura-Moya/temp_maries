@@ -1,10 +1,13 @@
 import {
-    AÑADIR_AL_CARRITO
+    AÑADIR_AL_CARRITO, 
+    ELIMINAR_DEL_CARRITO,
+    VACIAR_CARRITO
 } from '../actions'
 
 const carrito_reducer = (state, action) => {
 
-    if (action.type === AÑADIR_AL_CARRITO) {
+    if (action.type === AÑADIR_AL_CARRITO) 
+    {
         const {id, color, cantidad, producto} = action.payload;
 
         //Hay que comprobar si lo que nos viene para añadir ya 
@@ -43,6 +46,21 @@ const carrito_reducer = (state, action) => {
             }
             return {...state, carrito: [...state.carrito, productoaAñadir]}
         }
+    }
+
+    if (action.type === ELIMINAR_DEL_CARRITO)
+    {        
+        const {id, color} = action.payload;
+
+        //Recuerda que de payload le estás pasando el id del producto a eliminar!!!
+        const carritoAux = state.carrito.filter((item) => item.id !== id)
+        return {...state, carrito: carritoAux}
+    }
+
+    if (action.type === VACIAR_CARRITO)
+    {
+        //No traemos payload porque simplemente hay que vaciar el localStorage
+        return {...state, carrito: []}
     }
 
     throw new Error(`No matching "${action.type}" - action type`)

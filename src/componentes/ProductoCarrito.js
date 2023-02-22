@@ -25,7 +25,7 @@ const ProductoCarrito = ({id, imagen, nombre, color, precio, cantidad}) => {
       <h5 className='precio'>{precio} €</h5>
       <MasMenosBotones cantidad={cantidad} sumar={sumar} quitar={quitar}></MasMenosBotones>
       <h5 className='subtotal'>{precio * cantidad} €</h5>
-      <button type='button' className='eliminar-btn' onClick={() => {eliminarDelCarrito(id)}}><FaTimes color='red'/></button>
+      <button type='button' className='eliminar-btn' onClick={() => {eliminarDelCarrito(id, color)}}><FaTimes color='red'/></button>
       
     </Contenedor_ProductoCarrito>
   )

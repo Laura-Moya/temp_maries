@@ -3,6 +3,8 @@ import reducer from '../reducers/carrito_reducer'
 
 import {
     AÑADIR_AL_CARRITO,
+    ELIMINAR_DEL_CARRITO,
+    VACIAR_CARRITO,
 } from '../actions'
 
 //Gestión del almacenamiento local
@@ -29,7 +31,7 @@ const initialState = {
 
 const CarritoContexto = React.createContext()
 
-export const CarritoProvider = ({ children }) => {
+export const CarritoProvider = ({ children }) => {  
     const [state, dispatch] = useReducer(reducer, initialState)
 
     //FUNCIONALIDAD DE AÑADIR AL CARRITO
@@ -38,13 +40,17 @@ export const CarritoProvider = ({ children }) => {
     }
 
     //FUNCIONALIDAD DE ELIMINAR DEL CARRITO
-    const eliminarDelCarrito = (id) => {}
+    const eliminarDelCarrito = (id, color) => {
+        dispatch({type: ELIMINAR_DEL_CARRITO, payload: { id, color }})
+    }
 
     //FUNCIONALIDAD DE SUBIR O BAJAR LA CANTIDAD DE ELEMENTOS DEL CARRITO
     const modificarCantidad = (id, valor) => {}
 
     //FUNCIONALIDAD PARA VACIAR EL CARRITO
-    const vaciarCarrito = () => {}
+    const vaciarCarrito = () => {
+        dispatch({type: VACIAR_CARRITO})
+    }
 
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(state.carrito))
