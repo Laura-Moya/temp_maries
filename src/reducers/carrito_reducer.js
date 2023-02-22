@@ -1,6 +1,7 @@
 import {
     AÑADIR_AL_CARRITO, 
     ELIMINAR_DEL_CARRITO,
+    MODIFICAR_CANTIDAD,
     VACIAR_CARRITO
 } from '../actions'
 
@@ -54,6 +55,28 @@ const carrito_reducer = (state, action) => {
 
         //Recuerda que de payload le estás pasando el id del producto a eliminar!!!
         const carritoAux = state.carrito.filter((item) => item.id !== id)
+        return {...state, carrito: carritoAux}
+    }
+
+    if (action.type === MODIFICAR_CANTIDAD) 
+    {
+        const {id, valor} = action.payload
+        const carritoAux = state.carrito.map((item) => {
+            if (item.id === id){
+                if (valor === 'mas' ){
+                    let cantidadActualizada = item.cantidad + 1;
+                    if (cantidadActualizada > item.maxStock) {cantidadActualizada = item.maxStock}
+                    return {...item, cantidad: cantidadActualizada}
+                }
+                if (valor === 'menos'){
+                    let cantidadActualizada = item.cantidad - 1;
+                    if (cantidadActualizada < 1) {cantidadActualizada = 1}
+                    return {...item, cantidad: cantidadActualizada}
+                } 
+            }
+            else return item
+        } )
+
         return {...state, carrito: carritoAux}
     }
 

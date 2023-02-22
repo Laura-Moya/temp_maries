@@ -4,6 +4,7 @@ import reducer from '../reducers/carrito_reducer'
 import {
     AÑADIR_AL_CARRITO,
     ELIMINAR_DEL_CARRITO,
+    MODIFICAR_CANTIDAD,
     VACIAR_CARRITO,
 } from '../actions'
 
@@ -45,7 +46,10 @@ export const CarritoProvider = ({ children }) => {
     }
 
     //FUNCIONALIDAD DE SUBIR O BAJAR LA CANTIDAD DE ELEMENTOS DEL CARRITO
-    const modificarCantidad = (id, valor) => {}
+    const modificarCantidad = (id, valor) => {
+        //Valor es si subes o bajas
+        dispatch({type: MODIFICAR_CANTIDAD, payload: {id, valor}})
+    }
 
     //FUNCIONALIDAD PARA VACIAR EL CARRITO
     const vaciarCarrito = () => {

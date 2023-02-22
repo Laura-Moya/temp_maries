@@ -10,8 +10,12 @@ import { FaTimes, FaUser, FaUserInjured } from 'react-icons/fa';
 const ProductoCarrito = ({id, imagen, nombre, color, precio, cantidad}) => {
   //Nos traemos las funciones que va a poder usar cada producto
   const {eliminarDelCarrito, modificarCantidad} = useCarritoContexto();
-  const sumar = () => {}
-  const quitar = () => {}
+  const sumar = () => {
+    modificarCantidad(id, 'mas')
+  }
+  const quitar = () => {
+    modificarCantidad(id, 'menos')
+  }
   return (
     <Contenedor_ProductoCarrito>
       <div className='titulo'>
