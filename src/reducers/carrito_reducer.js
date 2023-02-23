@@ -2,6 +2,7 @@ import {
     AÑADIR_AL_CARRITO, 
     ELIMINAR_DEL_CARRITO,
     MODIFICAR_CANTIDAD,
+    CONTAR_PRECIO_TOTAL_CARRITO,
     VACIAR_CARRITO
 } from '../actions'
 
@@ -78,6 +79,22 @@ const carrito_reducer = (state, action) => {
         } )
 
         return {...state, carrito: carritoAux}
+    }
+
+    if (action.type === CONTAR_PRECIO_TOTAL_CARRITO)
+    {
+        const {items_carrito, precio_total} = state.carrito.reduce((total, item) => {
+            //Cada elemento del carrito, que es lo que estamos recorriendo, 
+            //tiene una cantidad de items de ese producto y un precio individual
+            const {cantidad, precio} = item
+            total.items_carrito += cantidad;
+            //console.log(items_carrito)
+            total.precio_total += precio * cantidad
+            return total
+        }, {
+            items_carrito: 0, precio_total: 0
+        })
+        return {...state, items_carrito, precio_total}
     }
 
     if (action.type === VACIAR_CARRITO)

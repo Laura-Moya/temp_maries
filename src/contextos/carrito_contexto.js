@@ -5,6 +5,7 @@ import {
     AÑADIR_AL_CARRITO,
     ELIMINAR_DEL_CARRITO,
     MODIFICAR_CANTIDAD,
+    CONTAR_PRECIO_TOTAL_CARRITO,
     VACIAR_CARRITO,
 } from '../actions'
 
@@ -19,7 +20,6 @@ const getLocalStorage = () => {
         return []
     }
 }
-
 
 const initialState = {
     carrito: getLocalStorage(), 
@@ -57,6 +57,7 @@ export const CarritoProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        dispatch({type: CONTAR_PRECIO_TOTAL_CARRITO})
         localStorage.setItem('carrito', JSON.stringify(state.carrito))
     }, [state.carrito])
     

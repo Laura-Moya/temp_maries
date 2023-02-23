@@ -11,11 +11,11 @@ const PrecioTotalCarrito = () => {
     <Contenedor_PrecioTotalCarrito>
         <div>
             <article>
-                <p>Subtotal: <span>{precio_total}</span></p>
-                <p>Coste envío: <span>{coste_envio}</span></p>
+                <p>Subtotal: <span>{precio_total} €</span></p>
+                <p>Coste envío: <span>{coste_envio} €</span></p>
                 <hr/>
                 <h4>Total a pagar: {' '}
-                <span>{precio_total+coste_envio}</span></h4>
+                <span>{precio_total+coste_envio} €</span></h4>
             </article>
             <Link to='pago' className='btn'>
                 Realizar el pago
