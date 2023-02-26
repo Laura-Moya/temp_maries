@@ -8,11 +8,12 @@ import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaUser, FaUserInjured } from 'react-icons/fa';
 import { useProductosContexto } from '../contextos/productos_contexto';
 import { useCarritoContexto } from '../contextos/carrito_contexto';
-
+import { useUsuarioContexto } from '../contextos/usuario_contexto';
 
 const CarritoYLogin = () => {
   const {cerrarNavbarLateral} = useProductosContexto();
-  const {items_carrito} = useCarritoContexto()
+  const {items_carrito} = useCarritoContexto();
+  const {loginWithRedirect, miUsuario, logout} = useUsuarioContexto();
 
   return (
     <Contenedor_CarritoYLogin className='contenedor-btn-carrito'>
@@ -22,9 +23,19 @@ const CarritoYLogin = () => {
           <span className='items-carrito'>{items_carrito}</span>
         </span>
       </Link>
-      <button type='button' className='btn-auth'>
-        <FaUser/>
-      </button>
+
+      {miUsuario ? 
+      <button type='button' className='btn-auth' onClick={() => logout({
+        returnTo: window.location.origin
+      })}>
+        Logout <FaUser id='especial'/>
+      </button> : 
+      <button type='button' className='btn-auth' onClick={loginWithRedirect}>
+        Login <FaUser id='especial'/>
+    </button>
+      }
+      
+      
     </Contenedor_CarritoYLogin>
   )
 }
@@ -73,11 +84,18 @@ const Contenedor_CarritoYLogin = styled.div`
   .btn-auth {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
-    color: black;
+    background: transparent;
+    border-color: transparent;
+    font-size: 1rem;
+    cursor: pointer;
     svg {
       margin-left: 5px;
     }
+    
+  }
+
+  #especial{
+      font-size: 1.5rem !important;
   }
 
 `
