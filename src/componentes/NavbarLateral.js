@@ -9,9 +9,12 @@ import styled from 'styled-components'
 import logo from '../images/logo.png'
 import CarritoYLogin from './CarritoYLogin'
 import { useProductosContexto } from '../contextos/productos_contexto'
+import { useUsuarioContexto } from '../contextos/usuario_contexto'
 
 const NavbarLateral = () => {
   const {navbarLateralAbierta, cerrarNavbarLateral} = useProductosContexto();
+  const {miUsuario} = useUsuarioContexto()
+
   return  <Contenedor_NavbarLateral>
             <aside className={`${navbarLateralAbierta ? 'navbarLateral mostrarNavbarLateral' : 
             'navbarLateral'}`}>
@@ -30,6 +33,9 @@ const NavbarLateral = () => {
                   <li>
                     <Link to='/carrito' onClick={cerrarNavbarLateral}>Carrito</Link>
                   </li>
+                  {
+                    miUsuario && (<li><Link to="/pago" onClick={cerrarNavbarLateral}>Pago</Link></li>)
+                  }
                 </ul>
                 <CarritoYLogin />
             </aside>

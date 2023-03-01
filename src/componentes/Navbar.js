@@ -9,11 +9,13 @@ import logo from '../images/logo.png';
 import {links} from '../utils/constantes'
 import CarritoYLogin from './CarritoYLogin.js'
 import { useProductosContexto } from '../contextos/productos_contexto';
-
+import { useUsuarioContexto } from '../contextos/usuario_contexto';
 
 
 export const Navbar = () => {
   const {abrirNavbarLateral} = useProductosContexto()
+  const {miUsuario} = useUsuarioContexto()
+
   return (
     <Contenedor_Navbar>
       <div className='navbar-centrada'>
@@ -33,6 +35,9 @@ export const Navbar = () => {
                     <Link to={url}>{nombre}</Link>
                   </li>) 
           })}
+          {
+            miUsuario && <li><Link to="/pago">Pago</Link></li>
+          }
         </ul>
         <CarritoYLogin />
       </div>

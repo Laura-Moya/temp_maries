@@ -30,7 +30,7 @@ button {
 
 .btn {
   text-transform: uppercase;
-  background: #b19277;
+  background: #b19277 !important;
   padding: 0.375rem 0.75rem;
   display: inline-block;
   font-weight: 400;

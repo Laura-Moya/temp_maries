@@ -7,7 +7,7 @@ export const UsuarioProvider = ({ children }) => {
 
     //WARNING!!! Estos tres primeros valores se tienen que llamar IGUAL que en la documentación
     //si no, no funciona
-    const {user, isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0()
+    const {user, loginWithRedirect, logout} = useAuth0()
 
     const [miUsuario, setMiUsuario] = useState(null)
 
@@ -16,11 +16,8 @@ export const UsuarioProvider = ({ children }) => {
         /*console.log(`usuario': ${user}`)
         console.log(`autenticado': ${isAuthenticated}`)
         console.log(`estaCargando': ${isLoading}`)*/
-        if (isAuthenticated){
-            setMiUsuario(user)
-        }
-        else setMiUsuario(false)
-    }, [isAuthenticated])
+        setMiUsuario(user)
+    }, [user])
 
     return (
         <UsuarioContexto.Provider value={{loginWithRedirect, logout, miUsuario}}>

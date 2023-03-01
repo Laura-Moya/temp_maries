@@ -1,28 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 //Importaciones propias
 import { useCarritoContexto } from '../contextos/carrito_contexto'
-import { Link } from 'react-router-dom'
+import { useUsuarioContexto } from '../contextos/usuario_contexto'
 
 const PrecioTotalCarrito = () => {
     const {precio_total, coste_envio } = useCarritoContexto();
-  return (
-    <Contenedor_PrecioTotalCarrito>
-        <div>
-            <article>
-                <p>Subtotal: <span>{precio_total} €</span></p>
-                <p>Coste envío: <span>{coste_envio} €</span></p>
-                <hr/>
-                <h4>Total a pagar: {' '}
-                <span>{precio_total+coste_envio} €</span></h4>
-            </article>
-            <Link to='pago' className='btn'>
-                Realizar el pago
-            </Link>
-        </div>
-    </Contenedor_PrecioTotalCarrito>
-  )
+    const {miUsuario, loginWithRedirect} = useUsuarioContexto()
+
+    return (
+        <Contenedor_PrecioTotalCarrito>
+            <div>
+                <article>
+                    <p>Subtotal: <span>{precio_total} €</span></p>
+                    <p>Coste envío: <span>{coste_envio} €</span></p>
+                    <hr/>
+                    <h4>Total a pagar: {' '}
+                    <span>{precio_total+coste_envio} €</span></h4>
+                </article>
+                {miUsuario ? 
+                    <Link to='/pago' className='btn'>
+                    Realizar el pago
+                    </Link>    : 
+                    <button type='button' className='btn' style={{ width: '100%'}} onClick={loginWithRedirect}>Login</button>
+                }
+                
+            </div>
+        </Contenedor_PrecioTotalCarrito>
+    )
 }
 
 const Contenedor_PrecioTotalCarrito = styled.section`
@@ -47,7 +54,7 @@ const Contenedor_PrecioTotalCarrito = styled.section`
     justify-content: flex-end;
     }
     .btn {
-    width: 92%;
+    width: 93.5%;
     margin-top: 1rem;
     text-align: center;
     font-weight: 400;

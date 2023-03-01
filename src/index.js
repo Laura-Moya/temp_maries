@@ -9,6 +9,7 @@ import { FiltroProvider } from './contextos/filtro_contexto'
 import { CarritoProvider } from './contextos/carrito_contexto'
 import { UsuarioProvider } from './contextos/usuario_contexto'
 import { Auth0Provider } from '@auth0/auth0-react'
+import AuthWrapper from './pages/AuthWrapper';
 
 //ReactDOM.render(<App></App>, document.getElementById('root'))
 

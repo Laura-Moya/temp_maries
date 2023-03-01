@@ -1,15 +1,18 @@
 import { React } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './componentes/Navbar';
-import {Footer} from './componentes/Footer'
+import { Footer } from './componentes/Footer'
 import NavbarLateral  from './componentes/NavbarLateral'
+import PrivateRoute from './pages/PrivateRoute';
+import AuthWrapper from './pages/AuthWrapper';
 
 import {Home, QuienesSomos, Carrito, Productos, Pago, Error404, Producto} from './pages'
 
 
 function App() {
   return (
-    <Router>
+    <AuthWrapper>
+      <Router>
       <Navbar />
       <NavbarLateral />
       <Routes>
@@ -18,11 +21,18 @@ function App() {
         <Route exact path='/carrito' element={<Carrito />} />
         <Route exact path='/productos' element={<Productos />} />
         <Route exact path='/productos/:id' element={<Producto />} />
-        <Route exact path='/pago' element={<Pago />} />
+        <Route
+          path='pago'
+          element={
+            <PrivateRoute element={<Pago />} />
+          } />
+        
         <Route path='*' element={<Error404 />} />
       </Routes>
       <Footer />
     </Router>
+    </AuthWrapper>
+    
   )
 }
 
