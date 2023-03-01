@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import hojaImagen  from '../images/hoja2.png'
 
 //Aquí es donde escribimos el percorso
 
@@ -17,7 +18,9 @@ export const EsqueletoSplit = ({title, producto}) => {
         <h3>
           <Link to='/'>Home</Link>
           {producto && <Link to="/productos"> / Productos</Link>} / {title}
+          {title === 'Carrito' ? <img src={hojaImagen} className='foto-hoja'></img> : null} 
         </h3>
+        
       </div>
     </Contenedor_EsqueletoSplit>
   )
@@ -36,5 +39,9 @@ const Contenedor_EsqueletoSplit = styled.section`
   }
   a:hover {
     color: var(--clr-primary-1);
+  }
+  .foto-hoja {
+    width: 10rem;
+    float: right;
   }
 `

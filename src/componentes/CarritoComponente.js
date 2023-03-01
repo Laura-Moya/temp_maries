@@ -11,31 +11,32 @@ const CarritoComponente = () => {
   const {carrito, vaciarCarrito} = useCarritoContexto()
   return (
     <Contenedor_CarritoComponente className='section section-centrada'>
-      <div className='columnas-carrito'>
-        <h5>Producto</h5>
-        <h5>Precio individual</h5>
-        <h5>Cantidad</h5>
-        <h5>Subtotal</h5>
-        <span></span>
-      </div>
-      <hr />
-      {carrito.map((item) => {
-        return <ProductoCarrito key={item.id} {...item}></ProductoCarrito>
-      })}
-      <hr/>
-      <div className='btns-container'>
-        <Link to='/productos' className='continuarComprando-btn'>Continuar comprando</Link>
-        <button type='button' className='continuarComprando-btn vaciar-btn'
-                onClick={vaciarCarrito}>
-            Vaciar carrito
-        </button>
-      </div>
-      <PrecioTotalCarrito/>
+        <div className='columnas-carrito'>
+          <h5>Producto</h5>
+          <h5>Precio individual</h5>
+          <h5>Cantidad</h5>
+          <h5>Subtotal</h5>
+          <span></span>
+        </div>
+        <hr />
+        {carrito.map((item) => {
+          return <ProductoCarrito key={item.id} {...item}></ProductoCarrito>
+        })}
+        <hr/>
+        <div className='btns-container'>
+          <Link to='/productos' className='continuarComprando-btn'>Continuar comprando</Link>
+          <button type='button' className='continuarComprando-btn vaciar-btn'
+                  onClick={vaciarCarrito}>
+              Vaciar carrito
+          </button>
+        </div>
+        <PrecioTotalCarrito/>      
     </Contenedor_CarritoComponente>
   )
 }
 
 const Contenedor_CarritoComponente = styled.section`
+
 .columnas-carrito {
   display: grid;
   grid-template-columns: 20rem 1fr 1fr 1fr auto;
