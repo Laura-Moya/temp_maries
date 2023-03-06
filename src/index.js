@@ -27,7 +27,6 @@ root.render(
             <ProductosProvider>
                 <FiltroProvider>
                     <CarritoProvider>
-                        
                         <App></App>
                     </CarritoProvider>
                 </FiltroProvider>

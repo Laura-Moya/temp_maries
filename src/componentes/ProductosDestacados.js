@@ -38,13 +38,12 @@ const ProductosDestacados = () => {
 }
 
 const ProductosDestacados_Contenedor = styled.section `
-    background: var(--clr-grey-10);
     .destacados {
-        margin: 4rem auto;
+        margin: 2rem auto;
         display: grid;
         gap: 2.5rem;
         img {
-        height: 225px;
+        height: 14rem;
         }
     }
     .btn {

@@ -27,7 +27,7 @@ function App() {
             <PrivateRoute element={<Pago />} />
           } />
         
-        <Route path='*' element={<Error404 />} />
+        <Route path='error' element={<Error404 />} />
       </Routes>
       <Footer />
     </Router>
