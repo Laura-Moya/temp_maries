@@ -7,9 +7,8 @@ const Contacto = () => {
         <div className='section-centrada'>
             <h3> ¿A qué esperas? ¡Únete a nuestra newsletter y disfruta de un 10% de descuento en tu primera compra! </h3>
             <div className='contenido'>
-                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
-                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
-                    cuando un impresor N. del T. 
+                <p>Inscríbete ahora y benefíciate de ofertas exclusivas, las últimas tendencias
+                  en decoración del hogar, consejos para remodelar tu hogar, ... ¡Y mucho más!
                 </p>
                 <form action="https://formspree.io/f/moqblgko" method="POST" className='form-contacto'>
                     <input type="email" className='form-input' placeholder='Email...' name="email"></input>

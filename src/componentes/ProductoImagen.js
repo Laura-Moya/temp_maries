@@ -12,8 +12,9 @@ const ProductoImagen = ({imagenes = [{url: ''}]}) => {
       {/*Montamos las demás fotos en un carousel hecho a mano*/}
       <div className='fotos'>
         {imagenes.map((item, index)=>{
-          //Te obliga a ponerle una key, pues le ponemos el indice de la imagen
-          return <img src={item.url} key={index} onClick={() => setPrimera(imagenes[index])} className={`${item.url === primera.url ? 'foco': '' }`}></img>
+          //Te obliga a ponerle una key, por lo que le ponemos el indice de la imagen
+          return <img src={item.url} key={index} 
+          onClick={() => setPrimera(imagenes[index])} className={`${item.url === primera.url ? 'foco': '' }`}></img>
         })}
       </div>
     </Contenedor_ProductoImagen>
