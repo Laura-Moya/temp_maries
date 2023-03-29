@@ -125,7 +125,7 @@ const Filtros = () => {
             max={precio_max}
             value={precio}></input>
         </div>
-        {/*FIn precios */}
+        {/*Fin precios */}
         {/*Envío gratis */}
         <div className='form-control envio'>
             <label htmlFor='envioGratis'>Envío gratuito: </label>
