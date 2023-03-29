@@ -13,6 +13,7 @@ const Home = () => {
       <NuestrosServicios />
       <ProductosDestacados />
       <Contacto />
+      <a href="https:/wa.me/34659841440"  target="_blank" className="whatsapp_float"><i className="fa-brands fa-whatsapp whatsapp-icon"></i></a>
     </main>
   )
 }

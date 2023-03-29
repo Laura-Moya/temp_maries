@@ -91,7 +91,7 @@ const filtro_reducer = (state, action) => {
                 return producto.nombre.toLowerCase().startsWith(texto)
             })
         }
-        if (categoria !== 'todos') {
+        if (categoria !== 'Todos') {
             auxProductos = auxProductos.filter((producto) =>  {
                 if (producto.categoria.indexOf(categoria) !== -1) {
                     return producto.categoria

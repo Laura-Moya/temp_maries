@@ -13,10 +13,10 @@ import Producto from './Producto'
 
 const ProductosDestacados = () => {
     const {productos_cargando: cargando, 
-           productos_error: error,
-           productos_destacados: destacados 
-          } = useProductosContexto();
-          
+            productos_error: error, 
+            productos_destacados: destacados
+        } = useProductosContexto();
+    
     if (cargando) {
         return <Cargando />
     }
@@ -51,6 +51,9 @@ const ProductosDestacados_Contenedor = styled.section `
         width: 148px;
         margin: 0 auto;
         text-align: center;
+    }
+    section {
+        padding: 5rem 0 3rem 0;
     }
     @media (min-width: 36px) {
         .destacados {
