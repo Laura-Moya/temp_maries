@@ -135,7 +135,7 @@ const Filtros = () => {
         {/*Fin Envío gratis */}
         {/*Limpiar filtros */}
         <button type='button' className='borrarFiltros-btn'
-                onClick={resetFiltros}> {' '} Borrar filtros</button>
+                onClick={resetFiltros}> {' '} Limpiar filtros</button>
         {/*Fin Limpiar filtros */}
 
       </form>
