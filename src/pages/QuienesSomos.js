@@ -17,14 +17,20 @@ const QuienesSomos = () => {
             <h2>Quienes somos</h2>
           </div>
           <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem 
-          Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
-          unknown printer took a galley of type and scrambled it to make a type specimen 
-          book. It has survived not only five centuries, but also the leap into electronic 
-          typesetting, remaining essentially unchanged. It was popularised in the 1960s with 
-          the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
-          with desktop publishing software like Aldus PageMaker including versions of Lorem 
-          Ipsum.
+          Llevamos décadas asesorando a miles de clientes sobre nuestros productos, todos ellos
+          basados en la máxima calidad y en el mejor diseño. Esto se debe a que uno de 
+          nuestros principales objetivos es seguir manteniendo la misma premisa que tenemos 
+          desde hace más de cuatro décadas, ofrecer al cliente solo productos de calidad contrastada. 
+          El tiempo y la completa satisfacción de los clientes han hecho el resto.
+          <br/><br/>
+          Ofrecemos a los clientes la calidad que se merecen, siempre en consonancia con la 
+          confianza que han depositado en nosotros a lo largo de los años. Además, damos un trato 
+          familiar, cordial y cercano, pero profesional, siempre con el objetivo de satisfacer todas 
+          las necesidades que se pudieran tener, tanto estéticas como funcionales.
+          <br/><br/>
+          A lo largo de nuestra carreta empresarial, nuestro trabajo siempre ha sido sinónimo de calidad, 
+          dispensando a todos los consumidores un trato profesional y con una rotación constante de productos, 
+          para que siempre encuentren las últimas novedades y tendencias del mercado.
           </p>
         </article>
       </Contenedor_QuienesSomos>
