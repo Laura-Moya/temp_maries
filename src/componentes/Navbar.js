@@ -10,7 +10,8 @@ import {links} from '../utils/constantes'
 import CarritoYLogin from './CarritoYLogin.js'
 import { useProductosContexto } from '../contextos/productos_contexto';
 import { useUsuarioContexto } from '../contextos/usuario_contexto';
-
+import ReactAudioPlayer from 'react-audio-player';
+import musica from '../audios/musica_de_fondo2.mp3'
 
 export const Navbar = () => {
   const {abrirNavbarLateral} = useProductosContexto()
@@ -18,6 +19,11 @@ export const Navbar = () => {
 
   return (
     <Contenedor_Navbar>
+      <ReactAudioPlayer
+  src={musica}
+  autoPlay={true}
+  volume={0.25}
+/>
       <div className='navbar-centrada'>
         <div className='navbar-botones'>
           <Link to='/'>
