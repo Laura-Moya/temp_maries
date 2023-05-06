@@ -69,7 +69,7 @@ const filtro_reducer = (state, action) => {
 
     if (action.type === ACTUALIZAR_FILTROS) {
         const {nombre, valor} = action.payload;
-        /*Explcación de esta línea: filtros_disponibles:{...state, filtros_disponibles, [nombre]: valor}
+        /*Explicación de esta línea: filtros_disponibles:{...state, filtros_disponibles, [nombre]: valor}
         Nosotros queremos que sea cual sea el filtro que estemos tocando, se actualice con nuestro valor, 
         así que en vez de hacer un switch o algo así, lo actualizamos de manera dinámica, 
         el valor nombre va a ser una de las propiedades de filtros_disponibles, la que sea se actualizará
