@@ -47,13 +47,15 @@ min-height: 60vh;
     gap: 8rem;
     h1 {
       margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 300;
     }
     p {
       font-size: 1.25rem;
     }
     .btn-intro {
       padding: 0.75rem 1.5rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     .img-estancia {
       display: block;
