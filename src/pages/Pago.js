@@ -8,7 +8,7 @@ import { useCarritoContexto } from '../contextos/carrito_contexto'
 import { Link } from 'react-router-dom'
 
 const Pago = () => {
-  const {carrito} = useCarritoContexto();
+  /*const {carrito} = useCarritoContexto();
   return (
     <main>
       <EsqueletoSplit title='pago'/>
@@ -26,7 +26,7 @@ const Pago = () => {
       </Contenedor_Pago>
       
     </main>
-  )
+  )*/
 }
 
 const Contenedor_Pago = styled.div`

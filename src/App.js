@@ -21,13 +21,11 @@ function App() {
         <Route exact path='/carrito' element={<Carrito />} />
         <Route exact path='/productos' element={<Productos />} />
         <Route exact path='/productos/:id' element={<Producto />} />
-        <Route
-          path='pago'
-          element={
-            <PrivateRoute element={<Pago />} />
-          } />
+        <Route element={<PrivateRoute/>} >
+          <Route exact path='/pago' element={<Pago/>} />
+        </Route>
         
-        <Route path='error' element={<Error404 />} />
+        <Route path='*' element={<Error404 />} />
       </Routes>
       <Footer />
     </Router>
@@ -38,3 +36,10 @@ function App() {
 
 export default App;
 
+{/*<PrivateRoute element={<Pago />} />*/}
+
+{/*<Route
+          path='/pago'
+          element={
+            <PrivateRoute><Pago /></PrivateRoute>
+          } /> */}

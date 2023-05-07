@@ -1,15 +1,29 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navigate } from 'react-router-dom'
-import { useUsuarioContexto } from '../contextos/usuario_contexto'
+import { Outlet, Navigate } from 'react-router-dom'
+import { Cargando } from '../componentes'
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = () => {
+
     //Si no lo llamas user NO funciona
-    const {user} = useAuth0()
-    if (!user) {
-        return user ? children : <Navigate to='/' />
+    const {
+    isLoading,
+    isAuthenticated,
+    error,
+    user,
+    loginWithRedirect,
+    logout,
+    } = useAuth0();
+
+    if (isLoading) return <div><Cargando/></div>
+    //if (isAuthenticated) return <div>Se ha autenticado</div>
+    /*if (!user) {
+    return <Navigate to='/' />;
     }
-    return children
+    return children*/
+    return (
+        user ? <Outlet/> : <Navigate to='/' />
+    )
 }
 
 export default PrivateRoute
