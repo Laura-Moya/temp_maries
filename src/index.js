@@ -16,8 +16,8 @@ import AuthWrapper from './pages/AuthWrapper';
 const root = ReactDOMClient.createRoot(document.getElementById('root'));
 root.render(
     <Auth0Provider 
-        domain="dev-erjzftojm2of33zj.us.auth0.com"
-        clientId="9oOChrC1XF7Ei1oq2XAWOHcKSbxGfOO6"
+        domain={process.env.REACT_APP_AUTH_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
         authorizationParams={{
         redirect_uri: window.location.origin
         }}

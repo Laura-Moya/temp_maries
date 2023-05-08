@@ -22,6 +22,7 @@ export const Navbar = () => {
       <ReactAudioPlayer
   src={musica}
   autoPlay={true}
+  controls
   volume={0.25}
 />
       <div className='navbar-centrada'>
