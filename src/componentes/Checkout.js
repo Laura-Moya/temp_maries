@@ -1,5 +1,5 @@
 //Importaciones básicas
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import styled from 'styled-components'
 
 //Importaciones propias
@@ -45,7 +45,42 @@ const CheckoutForm = () => {
       },
     },
   };
-    return <h2>pls work</h2>
+
+  const createPaymentIntent = async() => {
+    console.log('heeeey')
+  }
+  
+  useEffect( () => {
+    createPaymentIntent();
+  }, [])
+
+  const handleChange = async(event) => {}
+  const handleSubmit = async(event) => {}
+
+  return <div>
+    <form id='payment-form' onSubmit={handleSubmit}>
+      <CardElement id='card-element' 
+                  options={cardStyle} 
+                  onChange={handleChange} />
+      <button disabled={processing || disabled || succeeded}
+      id='submit'>
+        <span id='button-text'>
+          {processing ? <div className='spinner' id='spinner'></div> : 'Pay'}
+        </span>
+      </button>
+
+    {/*Mostrar los posibles errores del procesamiento del pago*/}
+    {error && (<div className='card-error' role='alert'>{error}</div>)}
+    {/*Mostrar un mensaje informando de que el pago ha ido bien*/}
+    <p className={succeeded ? 'result-message' : 'result-message hidden'}>
+      Pago completado, vea aquí el resultado
+      <a href={`https://dashboard.stripe.com/test/payments`}>
+        Stripe dashboard
+      </a>
+      Refresca la página para pagar otra vez
+    </p>
+    </form>
+  </div>
 }
 
 const Checkout = () => {
@@ -113,7 +148,7 @@ input {
 }
 /* Buttons and links */
 button {
-  background: #5469d4;
+  background: #5469d4 !important;
   font-family: Arial, sans-serif;
   color: #ffffff;
   border-radius: 0 0 4px 4px;
