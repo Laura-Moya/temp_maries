@@ -8,7 +8,7 @@ const CheckoutForm = () => {
 const Checkout = () => {
   return (
     <Contenedor_Checkout>
-        <Checkout/>
+        <CheckoutForm/>
     </Contenedor_Checkout>
   )
 }

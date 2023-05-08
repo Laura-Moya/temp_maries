@@ -1,3 +1,4 @@
+//Importaciones básicas
 import React from 'react'
 import styled from 'styled-components'
 import { EsqueletoSplit} from '../componentes/EsqueletoSplit'
@@ -8,28 +9,29 @@ import { useCarritoContexto } from '../contextos/carrito_contexto'
 import { Link } from 'react-router-dom'
 
 const Pago = () => {
-  /*const {carrito} = useCarritoContexto();
+  const {carrito} = useCarritoContexto();
   return (
     <main>
       <EsqueletoSplit title='pago'/>
       <Contenedor_Pago className='pagina-espacio-central'>
-        {
-          carrito.length < 1 ? 
-          (
+        {carrito.length < 1 ?
           <div className='vacio'>
-            <h2>Your cart is empty</h2>
-            <Link to='/productos' className='btn'>Fill it!</Link>
-          </div> )
-          :
-          (<Checkout/>)
-        }
+            <h2>Tu carrito está vacío</h2>
+            <Link to='/productos' className='btn'> PRODUCTOS </Link>
+          </div> : 
+          <Checkout></Checkout>}
       </Contenedor_Pago>
-      
     </main>
-  )*/
+  )
 }
 
 const Contenedor_Pago = styled.div`
+display: flex;
+  align-items: center;
+  justify-content: center;
+.vacio {
+    text-align: center;
+  }
 `
 
 export default Pago

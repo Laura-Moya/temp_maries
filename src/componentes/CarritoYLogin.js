@@ -12,7 +12,7 @@ import { useUsuarioContexto } from '../contextos/usuario_contexto';
 
 const CarritoYLogin = () => {
   const {cerrarNavbarLateral} = useProductosContexto();
-  const {items_carrito} = useCarritoContexto();
+  const {items_carrito, vaciarCarrito} = useCarritoContexto();
   const {loginWithRedirect, miUsuario, logout} = useUsuarioContexto();
 
   return (
@@ -25,9 +25,13 @@ const CarritoYLogin = () => {
       </Link>
 
       {miUsuario ? 
-      <button type='button' className='btn-auth' onClick={() => logout({
-        returnTo: window.location.origin
-      })}>
+      <button type='button' className='btn-auth' onClick={() =>{
+        vaciarCarrito()
+        logout({returnTo: window.location.origin})
+
+      } 
+      }
+      >
         Logout <FaUser id='especial'/>
       </button> : 
       <button type='button' className='btn-auth' onClick={loginWithRedirect}>
