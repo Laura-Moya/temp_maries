@@ -46,13 +46,25 @@ const CheckoutForm = () => {
     },
   };
 
-  const createPaymentIntent = async() => {
-    console.log('heeeey')
-  }
-  
-  useEffect( () => {
+  const createPaymentIntent = async () => {
+    try {
+      const data  = await axios.post(
+        '/.netlify/functions/crear-intento-pago',
+        JSON.stringify({ carrito, coste_envio, items_carrito })
+      ).then(response => {
+        return {
+          statusCode: 200,
+          body: JSON.stringify(response.data)
+        }
+      })
+    } catch (error) {
+      // console.log(error.response)
+    }
+  };
+  useEffect(() => {
     createPaymentIntent();
-  }, [])
+    // eslint-disable-next-line
+  }, []);
 
   const handleChange = async(event) => {}
   const handleSubmit = async(event) => {}
