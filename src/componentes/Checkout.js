@@ -48,17 +48,13 @@ const CheckoutForm = () => {
 
   const createPaymentIntent = async () => {
     try {
-      const data  = await axios.post(
+      const { data } = await axios.post(
         '/.netlify/functions/crear-intento-pago',
         JSON.stringify({ carrito, coste_envio, items_carrito })
-      ).then(response => {
-        return {
-          statusCode: 200,
-          body: JSON.stringify(response.data)
-        }
-      })
+      );
+      setClientSecret(data.clientSecret);
     } catch (error) {
-      // console.log(error.response)
+      console.log(error.response) 
     }
   };
   useEffect(() => {
@@ -101,7 +97,6 @@ const Checkout = () => {
       <Elements stripe={promise}>
         <CheckoutForm/>
       </Elements>
-        
     </Contenedor_Checkout>
   )
 }

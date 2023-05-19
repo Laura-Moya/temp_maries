@@ -27,7 +27,7 @@ const initialState = {
     //producto puedes comprar varios ejemplares
     items_carrito: 0, 
     precio_total: 0, 
-    coste_envio: 2,
+    coste_envio: 50,
 }
 
 const CarritoContexto = React.createContext()
