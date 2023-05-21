@@ -9,11 +9,12 @@ import axios from 'axios'
 import { useUsuarioContexto } from '../contextos/usuario_contexto'
 import { useCarritoContexto } from '../contextos/carrito_contexto'
 import { useNavigate } from 'react-router-dom';
+import { formatearPrecio } from '../utils/helpers';
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 const CheckoutForm = () => {
-  const { carrito, items_carrito, coste_envio, vaciarCarrito } = useCarritoContexto();
+  const { carrito, items_carrito, coste_envio, precio_total, vaciarCarrito } = useCarritoContexto();
   const { miUsuario } = useUsuarioContexto();
   const navigate = useNavigate();
   
@@ -50,7 +51,7 @@ const CheckoutForm = () => {
     try {
       const { data } = await axios.post(
         '/.netlify/functions/crear-intento-pago',
-        JSON.stringify({ carrito, coste_envio, items_carrito })
+        JSON.stringify({ carrito, coste_envio, items_carrito, precio_total })
       );
       setClientSecret(data.clientSecret);
     } catch (error) {
@@ -62,10 +63,50 @@ const CheckoutForm = () => {
     // eslint-disable-next-line
   }, []);
 
-  const handleChange = async(event) => {}
-  const handleSubmit = async(event) => {}
+  const handleChange = async(event) => {
+    setDisabled(event.empty)
+    setError(event.error ? event.error.message : '')
+  }
+  const handleSubmit = async(event) => {
+    event.preventDefault()
+    setProcessing(true)
+    console.log(clientSecret)
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    })
+    if (payload.error){
+      setError(`Pago fallido ${payload.error.message}`)
+      setProcessing(false)
+    }
+    else {
+      setError(null)
+      setProcessing(false)
+      setSucceeded(true)
+      setTimeout(() => {
+        vaciarCarrito();
+        navigate('/')
+      }, 10000);
+    }
+  }
 
-  return <div>
+  return (
+    <div>
+      {
+        succeeded ?
+        <article>
+          <h4>¡Gracias por su compra!</h4>
+          <h4>Su pago se ha completado con éxito</h4>
+          <h4>Redirigiendo a la página de inicio...</h4>
+        </article>
+        :
+        <article>
+          <h4>Hola, {miUsuario && miUsuario.name}</h4>
+          <p>El precio total es {items_carrito}</p>
+          <p>Test Card Number: 4242 4242 4242 4242</p>
+        </article> 
+      }
     <form id='payment-form' onSubmit={handleSubmit}>
       <CardElement id='card-element' 
                   options={cardStyle} 
@@ -88,7 +129,7 @@ const CheckoutForm = () => {
       Refresca la página para pagar otra vez
     </p>
     </form>
-  </div>
+  </div>)
 }
 
 const Checkout = () => {

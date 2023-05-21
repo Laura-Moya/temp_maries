@@ -9,3 +9,9 @@ export const getValoresFiltros = (totalDatos, nombreCampo) => {
  
     return ['todos', ...new Set(valores)]
 }
+
+export const formatearPrecio = (numero) => {
+    return new Intl.NumberFormat("es-ES", 
+    { style : "currency",  
+    currency : "EUR" } ).format(numero / 100)
+  }
