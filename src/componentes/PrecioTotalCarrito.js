@@ -6,19 +6,21 @@ import { Link } from 'react-router-dom'
 import { useCarritoContexto } from '../contextos/carrito_contexto'
 import { useUsuarioContexto } from '../contextos/usuario_contexto'
 
+import { formatearPrecio } from '../utils/helpers'
+
 const PrecioTotalCarrito = () => {
     const {precio_total, coste_envio } = useCarritoContexto();
-    const {miUsuario, loginWithRedirect} = useUsuarioContexto()
+    const {miUsuario, loginWithRedirect} = useUsuarioContexto();
 
     return (
         <Contenedor_PrecioTotalCarrito>
             <div>
                 <article>
-                    <p>Subtotal: <span>{precio_total} €</span></p>
-                    <p>Coste envío: <span>{coste_envio} €</span></p>
+                    <p>Subtotal: <span>{formatearPrecio(precio_total)}</span></p>
+                    <p>Coste envío: <span>{formatearPrecio(coste_envio)}</span></p>
                     <hr/>
                     <h4>Total a pagar: {' '}
-                    <span>{precio_total+coste_envio} €</span></h4>
+                    <span>{formatearPrecio(precio_total+coste_envio)}</span></h4>
                 </article>
                 {miUsuario ? 
                     <Link to='/pago' className='btn'>

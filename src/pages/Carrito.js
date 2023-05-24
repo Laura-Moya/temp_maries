@@ -14,12 +14,12 @@ const Carrito = () => {
 
   //Si el carrito está vacío
   if (carrito.length < 1) {
-    return <Contenedor_Carrito>
+    return( <Contenedor_Carrito>
       <div className='vacio'>
-        <h3>Tu carrito está vacío, ¡echa un vistazo a nuestros productos!</h3>
+        <h2>Tu carrito está vacío, ¡echa un vistazo a nuestros productos!</h2>
         <Link to='/productos' className='btn'>Productos</Link>
       </div>
-    </Contenedor_Carrito>
+    </Contenedor_Carrito>)
   }
   
   return (
@@ -33,13 +33,17 @@ const Carrito = () => {
 }
 
 const Contenedor_Carrito = styled.main`
-  .vacio {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 10rem);
+.vacio {
+    text-align: center;
+  }
   h2 {
     margin-bottom: 1rem;
     text-transform: none;
   }
-}
 `
 
 export default Carrito

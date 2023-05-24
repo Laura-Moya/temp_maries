@@ -12,6 +12,7 @@ import {EsqueletoSplit} from '../componentes/EsqueletoSplit'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { formatearPrecio } from '../utils/helpers'
 
 const Producto = () => {
   const {id} = useParams()
@@ -51,7 +52,7 @@ const Producto = () => {
         <section className='content'>
           <h2>{nombre}</h2>
           <Review estrellas={estrellas} />
-          <h5>{precio} €</h5>
+          <h5>{formatearPrecio(precio)}</h5>
           <p className='desc'>{descripcion}</p>
           <p className='info'>
             <span>Disponible: </span>

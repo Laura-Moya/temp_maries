@@ -12,7 +12,7 @@ const Pago = () => {
   const {carrito} = useCarritoContexto();
   return (
     <main>
-      <EsqueletoSplit title='pago'/>
+      <EsqueletoSplit title='Pago'/>
       <Contenedor_Pago className='pagina-espacio-central'>
         {carrito.length < 1 ?
           <div className='vacio'>
@@ -26,7 +26,7 @@ const Pago = () => {
 }
 
 const Contenedor_Pago = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 .vacio {

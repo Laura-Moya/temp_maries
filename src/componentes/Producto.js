@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+//Importaciones propias
 import { RiCursorFill } from 'react-icons/ri'
+import { formatearPrecio } from '../utils/helpers'
 
 const Producto = ({url, nombre, precio, id, destacado}) => {
   return (
@@ -16,9 +18,9 @@ const Producto = ({url, nombre, precio, id, destacado}) => {
         </div>
         <footer>
             <h4>{nombre}</h4>
-            <p>{precio} €</p>
+            <p>{formatearPrecio(precio)}</p>
         </footer>
-    </Producto_Contenedor> 
+    </Producto_Contenedor>
   )
 }
 

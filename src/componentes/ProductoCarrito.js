@@ -6,6 +6,7 @@ import { useCarritoContexto } from '../contextos/carrito_contexto'
 import { Link } from 'react-router-dom'
 import MasMenosBotones from '../componentes/MasMenosBotones'
 import { FaTimes, FaUser, FaUserInjured } from 'react-icons/fa';
+import { formatearPrecio } from '../utils/helpers'
 
 const ProductoCarrito = ({id, imagen, nombre, color, precio, cantidad}) => {
   //Nos traemos las funciones que va a poder usar cada producto
@@ -23,12 +24,12 @@ const ProductoCarrito = ({id, imagen, nombre, color, precio, cantidad}) => {
         <div>
           <h5 className='nombre'>{nombre}</h5>
           <p className='color'>Color: <span style={{backgroundColor:color, borderRadius: '50% '}}></span></p>
-          <h5 className='precio-responsive'>{precio} €</h5>
+          <h5 className='precio-responsive'>{formatearPrecio(precio)}</h5>
         </div>
       </div>
-      <h5 className='precio'>{precio} €</h5>
+      <h5 className='precio'>{formatearPrecio(precio)}</h5>
       <MasMenosBotones cantidad={cantidad} sumar={sumar} quitar={quitar}></MasMenosBotones>
-      <h5 className='subtotal'>{precio * cantidad} €</h5>
+      <h5 className='subtotal'>{formatearPrecio(precio * cantidad)}</h5>
       <button type='button' className='eliminar-btn' onClick={() => {eliminarDelCarrito(id, color)}}><FaTimes color='red'/></button>
       
     </Contenedor_ProductoCarrito>

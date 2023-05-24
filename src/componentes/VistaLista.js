@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { formatearPrecio } from '../utils/helpers'
+
 const VistaLista = ({productos}) => {
   return (
     <Contenedor_VistaLista>
@@ -11,7 +13,7 @@ const VistaLista = ({productos}) => {
                         <img src={url}></img>
                         <div>
                             <h4>{nombre}</h4>
-                            <h5 className='precio'>{precio} €</h5>
+                            <h5 className='precio'>{formatearPrecio(precio)}</h5>
                             <p>{descripcion.substring(0, 150)}...</p>
                             <Link to={`/productos/${id}`} className='btn'>
                                 Ver más
