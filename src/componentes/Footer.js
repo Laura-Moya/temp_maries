@@ -9,14 +9,14 @@ export const Footer = () => {
     <Contenedor_Footer>
       
     <footer>
-    <div class="content">
-      <div class="branding">
-        <img class="logo" src={logo} alt="Marie apartments logo" />
-        <p className='center'>Designs made only<br/> for you</p>
+    <div className="content">
+      <div className="branding">
+        <img className="logo" src={logo} alt="Marie apartments logo" />
+        <p classNameName='center'>Designs made only<br/> for you</p>
       </div>
 
       <div>
-        <p class="section-title">Enlaces</p>
+        <p className="section-title">Enlaces</p>
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/quienesSomos'>Quienes somos</Link></li>
@@ -25,7 +25,7 @@ export const Footer = () => {
       </div>
 
       <div>
-        <p class="section-title">Social</p>
+        <p className="section-title">Social</p>
         <ul>
           <li><a href="https://www.facebook.com/">Facebook</a></li>
           <li><a href="https://www.instagram.com/">Instagram</a></li>
@@ -33,7 +33,7 @@ export const Footer = () => {
       </div>
 
       <div>
-        <p class="section-title">Dirección</p>
+        <p className="section-title">Dirección</p>
         <ul>
           <li>C/ Desengaño, 21</li>
           <li>+34 961 234 591</li>
