@@ -11,9 +11,9 @@ const Producto = ({url, nombre, precio, id, destacado}) => {
     <Producto_Contenedor>
       
         <div className='contenedor'>
-            <img src={url} alt={nombre}></img>
-            <Link to={`/productos/${id}`} className='link'>
-                <RiCursorFill></RiCursorFill>
+            
+            <Link to={`/productos/${id}`}>
+                {/*<RiCursorFill></RiCursorFill>*/}<img src={url} alt={nombre}></img>
             </Link>
         </div>
         <footer>
@@ -48,10 +48,10 @@ const Producto_Contenedor = styled.article`
     border-radius: 50%;
     transition: all 0.3s linear;
     opacity: 0;
-    svg {
+    /*svg {
       font-size: 2rem;
       color: #6c584c;
-    }
+    }*/
   }
   .contenedor:hover img {
     opacity: 0.5;

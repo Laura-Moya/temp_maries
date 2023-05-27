@@ -114,7 +114,7 @@ const CheckoutForm = () => {
       <button disabled={processing || disabled || succeeded}
       id='submit'>
         <span id='button-text'>
-          {processing ? <div className='spinner' id='spinner'></div> : 'Pay'}
+          {processing ? <div className='spinner' id='spinner'></div> : 'Pagar'}
         </span>
       </button>
 
