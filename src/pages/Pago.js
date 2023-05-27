@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { EsqueletoSplit} from '../componentes/EsqueletoSplit'
-import { Checkout } from '../componentes'
+import { PagoComponente } from '../componentes'
 
 //Importaciones propias
 import { useCarritoContexto } from '../contextos/carrito_contexto'
@@ -14,12 +14,14 @@ const Pago = () => {
     <main>
       <EsqueletoSplit title='Pago'/>
       <Contenedor_Pago className='pagina-espacio-central'>
-        {carrito.length < 1 ?
+        {
+          carrito.length < 1 ?
           <div className='vacio'>
             <h2>Tu carrito está vacío</h2>
             <Link to='/productos' className='btn'> PRODUCTOS </Link>
-          </div> : 
-          <Checkout></Checkout>}
+          </div> 
+          : 
+          <PagoComponente></PagoComponente>}
       </Contenedor_Pago>
     </main>
   )

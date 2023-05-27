@@ -20,6 +20,7 @@ const CheckoutForm = () => {
   
   //Código sacado de la documentación de STRIPE
   const [succeeded, setSucceeded] = useState(false);
+  
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
   const [disabled, setDisabled] = useState(true);
@@ -103,7 +104,7 @@ const CheckoutForm = () => {
         <article>
           <h4>Hola, {miUsuario && miUsuario.name}</h4>
           <p>El precio total es {formatearPrecio(coste_envio + precio_total)}</p>
-          <p>Test Card Number: 4242 4242 4242 4242</p>
+          <p>Número de tarjeta para probar: 4242 4242 4242 4242</p>
         </article> 
       }
     <form id='payment-form' onSubmit={handleSubmit}>
@@ -121,8 +122,8 @@ const CheckoutForm = () => {
     {error && (<div className='card-error' role='alert'>{error}</div>)}
     {/*Mostrar un mensaje informando de que el pago ha ido bien*/}
     <p className={succeeded ? 'result-message' : 'result-message hidden'}>
-      Pago completado, vea aquí el resultado
-      <a href={`https://dashboard.stripe.com/test/payments`}>
+      Pago completado, vea aquí el resultado 
+      <a href={`https://dashboard.stripe.com/test/payments`}> 
         Stripe dashboard
       </a>
       Refresca la página para pagar otra vez

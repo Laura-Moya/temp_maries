@@ -16,7 +16,7 @@ import VistaBotones from './VistaBotones'
 import Review from './Review'
 import CarritoComponente from './CarritoComponente' 
 import EsqueletoSplit from './EsqueletoSplit'
-import Checkout from './Checkout'
+import PagoComponente from './PagoComponente'
 export {
     ProductosDestacados,
     CarritoYLogin,
@@ -33,5 +33,5 @@ export {
     VistaBotones,
     Review,
     CarritoComponente,
-    Checkout,
+    PagoComponente,
 }
