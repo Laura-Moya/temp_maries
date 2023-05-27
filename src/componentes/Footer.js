@@ -1,7 +1,7 @@
 //Importaciones básicas
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../images/logo.png';
+import logo from '../images/logoFooter.png';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
@@ -12,7 +12,7 @@ export const Footer = () => {
     <div className="content">
       <div className="branding">
         <img className="logo" src={logo} alt="Marie apartments logo" />
-        <p className='center'>Designs made only<br/> for you</p>
+        {/*<p className='center'>Designs made only<br/> for you</p>*/}
       </div>
 
       <div>
@@ -78,7 +78,8 @@ footer .content {
 }
 
 footer .logo {
-  max-width: 124px;
+  max-width: 14rem;
+  //max-width: 124px;
 }
 
 ul {

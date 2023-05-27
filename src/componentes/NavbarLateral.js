@@ -58,8 +58,7 @@ const Contenedor_NavbarLateral = styled.div`
     color: red;
   }
   .logo {
-    justify-self: center;
-    height: 3.5rem;
+    width: 13rem;
   }
   .navLateral-links {
     margin-bottom: 1rem;

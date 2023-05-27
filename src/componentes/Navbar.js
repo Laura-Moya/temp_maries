@@ -22,7 +22,7 @@ export const Navbar = () => {
       <ReactAudioPlayer
   src={musica}
   autoPlay={true}
-  controls
+  
   volume={0.25}
 />
       <div className='navbar-centrada'>
@@ -69,8 +69,8 @@ const Contenedor_Navbar = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 10rem;
-      //margin-left: -15px;
+      width: 15rem;
+      margin-left: 15px;
     }
   }
   .btn-Navbar {
