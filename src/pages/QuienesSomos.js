@@ -9,12 +9,12 @@ import quienesSomos from '../images/quienesSomos.jpg'
 const QuienesSomos = () => {
   return (
     <main>
-      <EsqueletoSplit title='Quienes somos'/>
+      <EsqueletoSplit title='Quiénes somos'/>
       <Contenedor_QuienesSomos className='pagina-espacio-central section section-centrada'>
         <img src={quienesSomos}></img>
         <article>
           <div className='nombre-seccion'>
-            <h2>Quienes somos</h2>
+            <h2>Quiénes somos</h2>
           </div>
           <p>
           Llevamos décadas asesorando a miles de clientes sobre nuestros productos, todos ellos
