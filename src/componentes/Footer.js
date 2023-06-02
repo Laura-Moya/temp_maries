@@ -27,8 +27,8 @@ export const Footer = () => {
       <div>
         <p className="section-title">Social</p>
         <ul>
-          <li><a href="https://www.facebook.com/">Facebook</a></li>
-          <li><a href="https://www.instagram.com/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100093310509150">Facebook</a></li>
+          <li><a href="https://www.instagram.com/mariesapartmentss/">Instagram</a></li>
         </ul>
       </div>
 
@@ -37,7 +37,7 @@ export const Footer = () => {
         <ul>
           <li>C/ Desengaño, 21</li>
           <li>+34 961 234 591</li>
-          <li>info@marieApartments.com</li>
+          <li>marieApartments2023@gmail.es</li>
         </ul>
       </div>
 
