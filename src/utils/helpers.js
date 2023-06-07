@@ -7,7 +7,7 @@ export const getValoresFiltros = (totalDatos, nombreCampo) => {
     //Esos campos por ahora, son colores y categoria
     if (nombreCampo === 'colores' || nombreCampo === 'categoria') valores = valores.flat()
  
-    return ['todos', ...new Set(valores)]
+    return ['Todos', ...new Set(valores)]
 }
 
 export const formatearPrecio = (numero) => {

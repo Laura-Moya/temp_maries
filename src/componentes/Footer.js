@@ -37,7 +37,7 @@ export const Footer = () => {
         <ul>
           <li>C/ Desengaño, 21</li>
           <li>+34 961 234 591</li>
-          <li>marieApartments2023@gmail.es</li>
+          <li>marieApartments2023@gmail.com</li>
         </ul>
       </div>
 

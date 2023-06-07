@@ -6,19 +6,13 @@ import { Link } from 'react-router-dom';
 import { useCarritoContexto } from '../contextos/carrito_contexto';
 import ProductoCarrito from './ProductoCarrito';
 import PrecioTotalCarrito from './PrecioTotalCarrito';
+import CabeceraCarrito from './CabeceraCarrito';
 
 const CarritoComponente = () => {
   const {carrito, vaciarCarrito} = useCarritoContexto()
   return (
     <Contenedor_CarritoComponente className='section section-centrada'>
-        <div className='columnas-carrito'>
-          <h5>Producto</h5>
-          <h5>Precio individual</h5>
-          <h5>Cantidad</h5>
-          <h5>Subtotal</h5>
-          <span></span>
-        </div>
-        <hr />
+        <CabeceraCarrito/>
         {carrito.map((item) => {
           return <ProductoCarrito key={item.id} {...item}></ProductoCarrito>
         })}

@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-
-//Importaciones propias
-import { useCarritoContexto } from '../contextos/carrito_contexto'
-import { Link } from 'react-router-dom'
-import MasMenosBotones from '../componentes/MasMenosBotones'
-import { FaTimes, FaUser, FaUserInjured } from 'react-icons/fa';
 import { formatearPrecio } from '../utils/helpers'
+import MasMenosBotones from './MasMenosBotones'
+import { FaTimes, FaUser, FaUserInjured } from 'react-icons/fa';
+import { useCarritoContexto } from '../contextos/carrito_contexto'
 
-const ProductoCarrito = ({id, imagen, nombre, color, precio, cantidad}) => {
-  //Nos traemos las funciones que va a poder usar cada producto
-  const {eliminarDelCarrito, modificarCantidad} = useCarritoContexto();
+const ProductoCarrito = ({ id, imagen, nombre, color, precio, cantidad }) => {
+  const { eliminarDelCarrito, modificarCantidad } = useCarritoContexto();
   const sumar = () => {
     modificarCantidad(id, 'mas')
   }
@@ -19,19 +15,23 @@ const ProductoCarrito = ({id, imagen, nombre, color, precio, cantidad}) => {
   }
   return (
     <Contenedor_ProductoCarrito>
-      <div className='titulo'>
+      <div className='title'>
         <img src={imagen} alt={nombre}></img>
         <div>
-          <h5 className='nombre'>{nombre}</h5>
-          <p className='color'>Color: <span style={{backgroundColor:color, borderRadius: '50% '}}></span></p>
-          <h5 className='precio-responsive'>{formatearPrecio(precio)}</h5>
+          <h5 className='name'>{nombre}</h5>
+          <p className='color'>
+            color :
+            <span style={{backgroundColor:color, borderRadius: '50% '}} />
+          </p>
+          <h5 className='price-small'>{formatearPrecio(precio)}</h5>
         </div>
       </div>
-      <h5 className='precio'>{formatearPrecio(precio)}</h5>
-      <MasMenosBotones cantidad={cantidad} sumar={sumar} quitar={quitar}></MasMenosBotones>
+      <h5 className='price'>{formatearPrecio(precio)}</h5>
+      <MasMenosBotones cantidad={cantidad} sumar={sumar} quitar={quitar} />
       <h5 className='subtotal'>{formatearPrecio(precio * cantidad)}</h5>
-      <button type='button' className='eliminar-btn' onClick={() => {eliminarDelCarrito(id, color)}}><FaTimes color='red'/></button>
-      
+      <button className='remove-btn' onClick={() => eliminarDelCarrito(id, color)}>
+        <FaTimes color='red'/>
+      </button>
     </Contenedor_ProductoCarrito>
   )
 }
@@ -40,7 +40,7 @@ const Contenedor_ProductoCarrito = styled.article`
   .subtotal {
     display: none;
   }
-  .precio {
+  .price {
     display: none;
   }
   display: grid;
@@ -50,28 +50,24 @@ const Contenedor_ProductoCarrito = styled.article`
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
-  .titulo {
+  .title {
     grid-template-rows: 4.7rem;
     display: grid;
-    grid-template-columns: 4.7rem 7.8rem;
+    grid-template-columns: 4.7rem 7.813rem;
     align-items: center;
     text-align: left;
     gap: 1rem;
   }
   img {
-    /*width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     display: block;
     border-radius: 0.25rem;
-    object-fit: cover;*/
-    float: left;
-    width:  6.25rem;
-    height: 6.25rem;
     object-fit: cover;
   }
   h5 {
     font-size: 0.75rem;
-    //margin-bottom: 0;
+    margin-bottom: 0;
   }
   .color {
     color: #5a5a5a;
@@ -90,7 +86,7 @@ const Contenedor_ProductoCarrito = styled.article`
       border-radius: 0.25rem;
     }
   }
-  .precio-responsive {
+  .price-small {
     color: #5a5a5a;
   }
   .amount-btns {
@@ -104,7 +100,8 @@ const Contenedor_ProductoCarrito = styled.article`
       font-size: 1rem;
     }
   }
-  .eliminar-btn {
+  .remove-btn {
+    color: white;
     background: transparent;
     border: transparent;
     width: 1.5rem;
@@ -116,7 +113,7 @@ const Contenedor_ProductoCarrito = styled.article`
     cursor: pointer;
     vertical-align: center;
   }
-
+  
   @media (min-width: 776px) {
     .subtotal {
       display: block;
@@ -124,17 +121,19 @@ const Contenedor_ProductoCarrito = styled.article`
       color: #5a5a5a;
       font-weight: 400;
       font-size: 1rem;
+      margin-bottom: 1.5rem;
     }
-    .precio-responsive {
+    .price-small {
       display: none;
     }
-    .precio {
+    .price {
       display: block;
       font-size: 1rem;
       color: #5a5a5a;
       font-weight: 400;
+      margin-bottom: 1.5rem;
     }
-    .nombre {
+    .name {
       font-size: 0.85rem;
     }
     .color {
@@ -150,13 +149,14 @@ const Contenedor_ProductoCarrito = styled.article`
     img {
       height: 100%;
     }
-    .titulo {
+    .title {
       height: 100%;
       display: grid;
       grid-template-columns: 100px 200px;
       align-items: center;
       gap: 1rem;
       text-align: left;
+      
     }
     .amount-btns {
       width: 100px;
