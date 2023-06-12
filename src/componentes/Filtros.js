@@ -5,6 +5,7 @@ import {FaCheck} from "react-icons/fa";
 //Importaciones propias
 import { useFiltroContexto } from '../contextos/filtro_contexto'
 import { getValoresFiltros } from '../utils/helpers'
+import { formatearPrecio } from '../utils/helpers';
 
 const Filtros = () => {
 
@@ -113,7 +114,7 @@ const Filtros = () => {
         {/*Precio */}
         <div className='form-control'>
             <h5>Precio </h5>
-            <p className='precio'>{precio} €</p>
+            <p className='precio'>{ formatearPrecio( precio)}</p>
             {/*Cuidado esto te convierte la cantidad a 
             string, lo queremos en integer */}
             <input 
